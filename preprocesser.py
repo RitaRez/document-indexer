@@ -1,17 +1,19 @@
-import json, os, math, subprocess, re, nltk
+import json, os, math, subprocess, re, nltk, time, logging
 
 from nltk.stem import PorterStemmer
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 
 nltk.download('stopwords')
+stop_words = set(stopwords.words('english'))
 nltk.download('punkt')
+
 
 def preprocesser(text: str) -> list:
     """Does stemming and removes stopwords and punctuation"""
     
-    stop_words = set(stopwords.words('english'))
     ps = PorterStemmer()
+    
 
     text = re.sub(r'[^\w\s]', ' ', text)       #Removes punctuation
     words = word_tokenize(text.lower() )       #Tokenizes the text
@@ -39,7 +41,9 @@ def get_word_frequency(cleaned_text: list) -> dict:
 def breaks_corpus(corpus_path: str, index_path: str, number_of_divisions: int) -> str:
     """Will read the jsonl file and break it into smaller chunks"""
 
-    number_of_documents = 4641784
+    # number_of_documents = 4641784
+    number_of_documents = int(str(subprocess.check_output(f"wc -l {corpus_path}", shell=True), 'utf-8').split(" ")[0])
+    
     size_of_division = math.ceil(number_of_documents / number_of_divisions)
 
     cmd = f'split --lines={size_of_division} --numeric-suffixes --suffix-length=2 {corpus_path} {index_path + "shards/"}t'
@@ -48,3 +52,25 @@ def breaks_corpus(corpus_path: str, index_path: str, number_of_divisions: int) -
     return index_path + "/shards/"
           
 
+def get_term_lexicon(corpus_path: str, index_path):
+    """Will read the jsonl file and break it into smaller chunks"""
+
+    term_lexicon = dict()
+    number_of_words = 0
+
+    with open(corpus_path, 'r') as f:
+        for line in f:
+            doc = json.loads(line)
+            cleaned_text = preprocesser(doc['text'])
+            for word in cleaned_text:
+                if word not in term_lexicon:
+                    number_of_words += 1
+                    term_lexicon[word] = number_of_words
+
+
+    with open(index_path + "term_lexicon.json", 'w') as f:
+        for word, id in term_lexicon.items():
+            f.write(f"{word}:{id}")
+
+    return term_lexicon, number_of_words
+    

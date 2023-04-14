@@ -1,8 +1,10 @@
-import sys, resource, argparse, os
-import json, os, math, subprocess, time
+import sys, resource, argparse, os, logging, json, os, math, subprocess, time
+from preprocesser import breaks_corpus, get_term_lexicon
+from utils import index_shard, run_indexer_thread_pool
+from collections import OrderedDict 
 
-from preprocesser import breaks_corpus
-from utils import index_shard, create_thread_pool
+logging.basicConfig(filename='min_corpus_main.log', level=logging.INFO)
+
 
 MEGABYTE = 1024 * 1024
 def memory_limit(value):
@@ -10,50 +12,41 @@ def memory_limit(value):
     resource.setrlimit(resource.RLIMIT_AS, (limit, limit))
 
 
-
-# def thread_creator(nb_threads = 8) -> None:
-#     """Iterates through all notice ids and downloads the notices"""
-
-    
-#     threads = []
-#     for thread_id in range(nb_threads):
-#         print(f"Thread {thread_id} will go from {right_range} to {left_range + 1}")
-#         t = Thread(target=, 
-#                    args=()
-#                    )
-#         threads.append(t)
-#         t.start()
-
-#     for t in threads:
-#         t.join()
-
-
-
-def main(memory_limit: str, corpus_path: str, index_path: str):
+def main(memory_limit: str, corpus_path: str, index_path: str, verbose: bool, number_of_threads: int):
     """
     Your main calls should be added here
     """
 
-    number_of_threads = 8
+    logging.info(f"Indexing corpus {corpus_path} to an indexer in {index_path} with {number_of_threads} threads and {memory_limit} MB of memory")
 
-    seconds = time.time()
-    cmd = f"du -s {corpus_path}"
-    file_size = int(str(subprocess.check_output(cmd, shell=True), 'utf-8').split("\t")[0])
-    number_of_divisions = math.ceil((1.5*file_size)/(memory_limit*1024))              #Amount of pieces we can manage to process
-    number_of_divisions = number_of_divisions * number_of_threads                     #What we can process to each thread
-    print("Were divinding the corpus in " + str(number_of_divisions) + " pieces")
-    print(f"Time to get the number of divions: {time.time() - seconds} seconds")
-
+    # seconds = time.time()
+    # # Amount of pieces we can manage to process for each thread due to memory limit
+    # file_size = int(str(subprocess.check_output(f"du -s {corpus_path}", shell=True), 'utf-8').split("\t")[0])
+    # # number_of_divisions = math.ceil((file_size)/(memory_limit*1024)) * number_of_threads
+    # number_of_divisions = number_of_threads
+    # # number_of_divisions = 1
+    
+    # logging.info(f"Were divinding the corpus in  {str(number_of_divisions)} pieces")
+    # logging.info(f"Time to get the number of divions:  {time.time() - seconds} seconds")
 
     # seconds = time.time()
     # shards_path = breaks_corpus(corpus_path, index_path, number_of_divisions)
-    # print(f"Time to split the corpus: {time.time() - seconds} seconds")
+    # logging.info(f"Time to split the corpus: {time.time() - seconds} seconds")
+
 
     # seconds = time.time()
-    # index_shard(2, 2, "../output/shards/t00", index_path)
-    # print(f"Time to index one shard of the  corpus: {time.time() - seconds} seconds")
-    
-    create_thread_pool(index_path, number_of_threads)
+    # term_lexicon, number_of_words = get_term_lexicon(corpus_path, index_path)
+    # logging.info(f"Time to create lexicon: {time.time() - seconds} seconds")
+    # print(number_of_words)
+
+    seconds = time.time()    
+    run_indexer_thread_pool(term_lexicon, index_path, number_of_threads)
+    logging.info(f"Time to index all shards: {time.time() - seconds} seconds")
+
+
+    logging.info(f"------------------------------------------------------------------------------------------------------------------------------------")
+
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Process some integers.')
@@ -65,28 +58,21 @@ if __name__ == "__main__":
         type=int,
         help='memory available'
     )
-    parser.add_argument(
-        '-c',
-        dest='corpus_path',
-        action='store',
-        required=True,
-        type=str
-    )
-    parser.add_argument(
-        '-i',
-        dest='index_path',
-        action='store',
-        required=True,
-        type=str
-    )
+    parser.add_argument('-c',dest='corpus_path',action='store',required=True,type=str)
+    parser.add_argument('-i',dest='index_path',action='store',required=True,type=str)
+    parser.add_argument('-v',dest='verbose',action='store',required=False,type=bool,default=False)
+    parser.add_argument('-t',dest='number_of_threads',action='store',required=False,type=int,default=8)
 
     args = parser.parse_args()
     memory_limit(args.memory_limit)
     try:
-        main(args.memory_limit, args.corpus_path, args.index_path)
+        main(args.memory_limit, args.corpus_path, args.index_path, args.verbose, args.number_of_threads)
     except MemoryError:
         sys.stderr.write('\n\nERROR: Memory Exception\n')
         sys.exit(1)
+        logging.info(f"MEMORY ERROR")
+        logging.info(f"------------------------------------------------------------------------------------------------------------------------------------")
+
 
 
 # You CAN (and MUST) FREELY EDIT this file (add libraries, arguments, functions and calls) to implement your indexer

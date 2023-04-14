@@ -1,0 +1,146 @@
+INFO:root:Indexing corpus ../corpus.jsonl to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  32 pieces
+INFO:root:Time to get the number of divions:  0.007963895797729492 seconds
+INFO:root:Time to create index of shard t00: 317.40985202789307 seconds
+INFO:root:Time to save index of shard t00: 25.81755805015564 seconds
+INFO:root:Time to create index of shard t03: 343.42689323425293 seconds
+INFO:root:Time to create index of shard t05: 343.63808012008667 seconds
+INFO:root:Time to create index of shard t02: 345.2966368198395 seconds
+INFO:root:Time to create index of shard t01: 347.7151529788971 seconds
+INFO:root:Time to create index of shard t06: 349.3423135280609 seconds
+INFO:root:Time to create index of shard t07: 349.9739317893982 seconds
+INFO:root:Time to create index of shard t04: 353.02277731895447 seconds
+INFO:root:Time to save index of shard t03: 29.017647981643677 seconds
+INFO:root:Time to save index of shard t05: 28.90547823905945 seconds
+INFO:root:Time to save index of shard t02: 29.829854011535645 seconds
+INFO:root:Time to save index of shard t01: 30.800193309783936 seconds
+INFO:root:Time to save index of shard t06: 30.19961929321289 seconds
+INFO:root:Time to save index of shard t07: 30.68249249458313 seconds
+INFO:root:Time to save index of shard t04: 30.653859615325928 seconds
+INFO:root:Time to create index of shard t08: 387.2079179286957 seconds
+INFO:root:Time to create index of shard t09: 383.3342730998993 seconds
+INFO:root:Time to save index of shard t08: 33.17386221885681 seconds
+INFO:root:Time to create index of shard t11: 388.30778980255127 seconds
+INFO:root:Time to create index of shard t12: 391.55908727645874 seconds
+INFO:root:Time to create index of shard t10: 398.7140953540802 seconds
+INFO:root:Time to create index of shard t15: 389.6408977508545 seconds
+INFO:root:Time to create index of shard t13: 396.14364671707153 seconds
+INFO:root:Time to create index of shard t14: 401.82760548591614 seconds
+INFO:root:Time to save index of shard t09: 32.11232089996338 seconds
+INFO:root:Time to save index of shard t11: 33.8532133102417 seconds
+INFO:root:Time to save index of shard t12: 37.017231702804565 seconds
+INFO:root:Time to save index of shard t10: 38.569618701934814 seconds
+INFO:root:Time to save index of shard t15: 37.77177166938782 seconds
+INFO:root:Time to save index of shard t13: 36.79839634895325 seconds
+INFO:root:Time to save index of shard t14: 39.62162685394287 seconds
+INFO:root:Time to create index of shard t16: 368.9561333656311 seconds
+INFO:root:Time to create index of shard t17: 347.5246510505676 seconds
+INFO:root:Time to save index of shard t16: 30.274832487106323 seconds
+INFO:root:Time to save index of shard t17: 26.956315755844116 seconds
+INFO:root:Time to create index of shard t19: 365.39837646484375 seconds
+INFO:root:Time to create index of shard t18: 376.0961186885834 seconds
+INFO:root:Time to create index of shard t22: 369.19379448890686 seconds
+INFO:root:Time to create index of shard t20: 374.19143080711365 seconds
+INFO:root:Time to create index of shard t21: 374.7305819988251 seconds
+INFO:root:Time to create index of shard t23: 373.2705855369568 seconds
+INFO:root:Time to save index of shard t19: 29.50342035293579 seconds
+INFO:root:Time to save index of shard t18: 32.32605195045471 seconds
+INFO:root:Time to save index of shard t22: 34.47328424453735 seconds
+INFO:root:Time to save index of shard t20: 33.88435935974121 seconds
+INFO:root:Time to save index of shard t21: 34.217514753341675 seconds
+INFO:root:Time to save index of shard t23: 31.96252942085266 seconds
+INFO:root:Time to create index of shard t25: 393.81919026374817 seconds
+INFO:root:Time to create index of shard t24: 402.58375096321106 seconds
+INFO:root:Time to save index of shard t25: 32.975892066955566 seconds
+INFO:root:Time to save index of shard t24: 33.12185859680176 seconds
+INFO:root:Time to create index of shard t26: 405.19177985191345 seconds
+INFO:root:Time to create index of shard t27: 402.50312399864197 seconds
+INFO:root:Time to create index of shard t30: 399.75748085975647 seconds
+INFO:root:Time to create index of shard t29: 403.86922311782837 seconds
+INFO:root:Time to create index of shard t31: 396.27436208724976 seconds
+INFO:root:Time to create index of shard t28: 409.67884516716003 seconds
+INFO:root:Time to save index of shard t26: 26.06087851524353 seconds
+INFO:root:Time to save index of shard t27: 25.220767974853516 seconds
+INFO:root:Time to save index of shard t30: 21.043029308319092 seconds
+INFO:root:Time to save index of shard t29: 20.520760774612427 seconds
+INFO:root:Time to save index of shard t31: 19.53134775161743 seconds
+INFO:root:Time to save index of shard t28: 20.046327114105225 seconds
+INFO:root:Time to index all shards: 1651.7125132083893 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../corpus.jsonl to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  24 pieces
+INFO:root:Time to get the number of divions:  0.011377334594726562 seconds
+INFO:root:Time to create index of shard t00: 320.3282103538513 seconds
+INFO:root:Time to save index of shard t00: 23.75661826133728 seconds
+INFO:root:Time to create index of shard t05: 344.51203632354736 seconds
+INFO:root:Time to create index of shard t02: 346.2635803222656 seconds
+INFO:root:Time to create index of shard t07: 347.78087639808655 seconds
+INFO:root:Time to create index of shard t03: 348.5085217952728 seconds
+INFO:root:Time to create index of shard t06: 349.00019454956055 seconds
+INFO:root:Time to create index of shard t04: 349.701220035553 seconds
+INFO:root:Time to create index of shard t01: 351.0128138065338 seconds
+INFO:root:Time to save index of shard t05: 25.62736177444458 seconds
+INFO:root:Time to save index of shard t02: 27.72571325302124 seconds
+INFO:root:Time to save index of shard t07: 27.00187611579895 seconds
+INFO:root:Time to save index of shard t03: 26.752554178237915 seconds
+INFO:root:Time to save index of shard t06: 27.28171443939209 seconds
+INFO:root:Time to save index of shard t04: 28.7846999168396 seconds
+INFO:root:Time to save index of shard t01: 29.76224160194397 seconds
+-----------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../corpus.jsonl to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to get the number of divions:  0.024974346160888672 seconds /MEMORY ERROR
+---------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../corpus.jsonl to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  24 pieces
+INFO:root:Time to get the number of divions:  0.009732961654663086 seconds
+INFO:root:Time to create index of shard t00: 338.29081416130066 seconds
+INFO:root:Time to create index of shard t02: 351.7260117530823 seconds
+INFO:root:Time to create index of shard t01: 353.324049949646 seconds
+INFO:root:Time to create index of shard t03: 354.35271978378296 seconds
+INFO:root:Time to create index of shard t05: 356.1184895038605 seconds
+INFO:root:Time to create index of shard t06: 357.2051291465759 seconds
+INFO:root:Time to create index of shard t04: 358.6835298538208 seconds
+INFO:root:Time to create index of shard t07: 360.00061798095703 seconds
+INFO:root:Time to save index of shard t00: 25.119768857955933 seconds
+INFO:root:Time to save index of shard t02: 28.73802924156189 seconds
+INFO:root:Time to save index of shard t03: 29.344430446624756 seconds
+INFO:root:Time to save index of shard t01: 31.284427404403687 seconds
+INFO:root:Time to save index of shard t05: 28.69511079788208 seconds
+INFO:root:Time to save index of shard t06: 29.589728832244873 seconds
+INFO:root:Time to save index of shard t04: 29.665369510650635 seconds
+INFO:root:Time to save index of shard t07: 29.476120710372925 seconds
+INFO:root:Time to create index of shard t08: 401.8727207183838 seconds
+INFO:root:Time to create index of shard t12: 381.4994115829468 seconds
+INFO:root:Time to create index of shard t13: 384.7164855003357 seconds
+INFO:root:Time to create index of shard t09: 406.3584921360016 seconds
+INFO:root:Time to create index of shard t11: 408.1533634662628 seconds
+INFO:root:Time to create index of shard t14: 405.3203647136688 seconds
+INFO:root:Time to create index of shard t10: 414.72109293937683 seconds
+INFO:root:Time to save index of shard t12: 35.05243897438049 seconds
+INFO:root:Time to save index of shard t08: 39.623724937438965 seconds
+INFO:root:Time to save index of shard t13: 37.23959827423096 seconds
+INFO:root:Time to create index of shard t15: 424.59715843200684 seconds
+INFO:root:Time to save index of shard t09: 42.4792046546936 seconds
+INFO:root:Time to save index of shard t14: 42.789058208465576 seconds
+INFO:root:Time to save index of shard t11: 43.89550709724426 seconds
+INFO:root:Time to save index of shard t10: 45.46628379821777 seconds
+INFO:root:Time to save index of shard t15: 43.305678606033325 seconds
+INFO:root:Time to create index of shard t16: 566.0003998279572 seconds
+INFO:root:Time to create index of shard t17: 563.3148300647736 seconds
+INFO:root:Time to create index of shard t18: 569.5745697021484 seconds
+INFO:root:Time to create index of shard t19: 571.8690977096558 seconds
+INFO:root:Time to save index of shard t17: 39.71553874015808 seconds
+INFO:root:Time to save index of shard t16: 40.44031572341919 seconds
+INFO:root:Time to create index of shard t20: 574.5806839466095 seconds
+INFO:root:Time to save index of shard t18: 36.467968702316284 seconds
+INFO:root:Time to create index of shard t21: 578.4447817802429 seconds
+INFO:root:Time to create index of shard t22: 575.0515940189362 seconds
+INFO:root:Time to create index of shard t23: 565.5845077037811 seconds
+INFO:root:Time to save index of shard t19: 29.208258628845215 seconds
+INFO:root:Time to save index of shard t20: 25.502195358276367 seconds
+INFO:root:Time to save index of shard t21: 24.84628701210022 seconds
+INFO:root:Time to save index of shard t22: 23.634453296661377 seconds
+INFO:root:Time to save index of shard t23: 22.16505527496338 seconds
+INFO:root:Time to index all shards: 1451.2578041553497 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------
