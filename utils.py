@@ -154,6 +154,19 @@ def merger(index_path, first_file, second_file, last_merge=False):
     os.remove(os.path.join(index_path + index_folder, second_file))
 
 
+def clear_output_folders(index_path: str):
+    """Deletes all files in the output folders"""
+
+    for file in os.listdir(index_path + "indexes/"):
+        os.remove(os.path.join(index_path + "indexes/", file))
+
+    for file in os.listdir(index_path + "shards/"):
+        os.remove(os.path.join(index_path + "shards/", file))
+
+    os.rmdir(index_path + "shards/")
+    os.rmdir(index_path + "indexes/")
+
+
 def run_merger_thread_pool(index_path: str, number_of_threads: int):
 #     """Creates a thread pool with the number of threads we want to use"""
 
@@ -176,6 +189,9 @@ def run_merger_thread_pool(index_path: str, number_of_threads: int):
 
 
     print(f"Time to merge all files: {time.time() - seconds} seconds")
+
+    clear_output_folders(index_path)
+
 
 
 # merger("../output/", "t00", "t01", last_merge=False)
