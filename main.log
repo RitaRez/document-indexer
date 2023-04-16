@@ -144,3 +144,213 @@ INFO:root:Time to save index of shard t22: 23.634453296661377 seconds
 INFO:root:Time to save index of shard t23: 22.16505527496338 seconds
 INFO:root:Time to index all shards: 1451.2578041553497 seconds
 INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../corpus.jsonl to an indexer in ../ouput/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to get the number of divions:  0.01654338836669922 seconds
+INFO:root:Time to split the corpus: 43.30338764190674 seconds
+INFO:root:Indexing corpus ../corpus.jsonl to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to get the number of divions:  0.01485300064086914 seconds
+INFO:root:Time to split the corpus: 52.33136582374573 seconds
+INFO:root:Time to create lexicon: 4951.010595321655 seconds
+INFO:root:Indexing corpus ../corpus.jsonl of size 2178328 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to split the corpus: 46.50087118148804 seconds
+-------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../corpus.jsonl of size 2178328 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  25 pieces
+INFO:root:Time to split the corpus: 47.32407283782959 seconds
+INFO:root:Time to create index of shard t00: 409.5333573818207 seconds
+INFO:root:Time to create index of shard t02: 432.36062598228455 seconds
+INFO:root:Time to create index of shard t07: 434.5682203769684 seconds
+INFO:root:Time to create index of shard t05: 435.14427375793457 seconds
+INFO:root:Time to create index of shard t01: 435.95814538002014 seconds
+INFO:root:Time to create index of shard t04: 438.0404977798462 seconds
+INFO:root:Time to create index of shard t03: 441.74164175987244 seconds
+INFO:root:Time to create index of shard t06: 446.70358872413635 seconds
+INFO:root:Time to create index of shard t13: 438.50199270248413 seconds
+INFO:root:Time to create index of shard t08: 476.23624539375305 seconds
+INFO:root:Time to create index of shard t12: 464.51799631118774 seconds
+INFO:root:Time to create index of shard t09: 478.4862251281738 seconds
+INFO:root:Time to create index of shard t10: 482.87872886657715 seconds
+INFO:root:Time to create index of shard t11: 485.8787589073181 seconds
+INFO:root:Time to create index of shard t14: 480.4894299507141 seconds
+INFO:root:Time to create index of shard t15: 486.2753417491913 seconds
+INFO:root:Time to create index of shard t17: 510.9038157463074 seconds
+INFO:root:Time to create index of shard t16: 535.9022879600525 seconds
+INFO:root:Time to create index of shard t18: 517.8356816768646 seconds
+INFO:root:Time to create index of shard t19: 513.0914664268494 seconds
+INFO:root:Time to create index of shard t21: 516.9525516033173 seconds
+INFO:root:Time to create index of shard t20: 521.7164804935455 seconds
+INFO:root:Time to create index of shard t23: 514.8469841480255 seconds
+INFO:root:Time to create index of shard t22: 529.3748264312744 seconds
+INFO:root:Time to create index of shard t24: 247.07910680770874 seconds
+------------------------------------------------------------------------------------------------------------------INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to split the corpus: 1.168849229812622 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to split the corpus: 1.4150114059448242 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to split the corpus: 1.2535974979400635 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to split the corpus: 1.0830600261688232 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to split the corpus: 1.488555908203125 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to split the corpus: 1.2648088932037354 seconds
+INFO:root:Time to create index of shard t06: 31.616470336914062 seconds
+INFO:root:Time to create index of shard t07: 32.63901162147522 seconds
+INFO:root:Time to save index of shard t06: 1.115621566772461 seconds
+INFO:root:Time to create index of shard t03: 33.08967614173889 seconds
+INFO:root:Time to create index of shard t01: 33.3039493560791 seconds
+INFO:root:Time to save index of shard t07: 1.1446006298065186 seconds
+INFO:root:Time to create index of shard t05: 33.840150356292725 seconds
+INFO:root:Time to save index of shard t03: 1.0862278938293457 seconds
+INFO:root:Time to create index of shard t02: 34.21228575706482 seconds
+INFO:root:Time to create index of shard t04: 34.2617552280426 seconds
+INFO:root:Time to save index of shard t01: 1.0472891330718994 seconds
+INFO:root:Time to create index of shard t00: 34.6691620349884 seconds
+INFO:root:Time to save index of shard t05: 1.080660343170166 seconds
+INFO:root:Time to save index of shard t02: 1.0733187198638916 seconds
+INFO:root:Time to save index of shard t04: 1.061382532119751 seconds
+INFO:root:Time to save index of shard t00: 1.1330580711364746 seconds
+INFO:root:Time to index all shards: 35.961459159851074 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to split the corpus: 1.2751390933990479 seconds
+INFO:root:Time to create index of shard t06: 32.487903356552124 seconds
+INFO:root:Time to save index of shard t06: 0.9664011001586914 seconds
+INFO:root:Time to create index of shard t07: 34.36769938468933 seconds
+INFO:root:Time to create index of shard t01: 34.580682039260864 seconds
+INFO:root:Time to create index of shard t05: 34.71144962310791 seconds
+INFO:root:Time to create index of shard t03: 34.93236422538757 seconds
+INFO:root:Time to create index of shard t04: 35.43375110626221 seconds
+INFO:root:Time to save index of shard t07: 1.2903962135314941 seconds
+INFO:root:Time to create index of shard t02: 35.87659692764282 seconds
+INFO:root:Time to save index of shard t01: 1.340135097503662 seconds
+INFO:root:Time to save index of shard t05: 1.488070011138916 seconds
+INFO:root:Time to save index of shard t03: 1.37040114402771 seconds
+INFO:root:Time to save index of shard t04: 1.4497106075286865 seconds
+INFO:root:Time to save index of shard t02: 1.3546745777130127 seconds
+INFO:root:Time to create index of shard t00: 37.42754650115967 seconds
+INFO:root:Time to save index of shard t00: 1.079026460647583 seconds
+INFO:root:Time to index all shards: 38.722137689590454 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to split the corpus: 2.0371923446655273 seconds
+INFO:root:Time to index all shards: 0.048316240310668945 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to split the corpus: 2.128873109817505 seconds
+INFO:root:Found 8 shards
+INFO:root:Time to create index of shard t06: 35.92740178108215 seconds
+INFO:root:Time to save index of shard t06: 1.3293163776397705 seconds
+INFO:root:Time to create index of shard t07: 37.71392750740051 seconds
+INFO:root:Time to create index of shard t01: 38.32594919204712 seconds
+INFO:root:Time to create index of shard t05: 38.43826508522034 seconds
+INFO:root:Time to create index of shard t03: 39.011749505996704 seconds
+INFO:root:Time to create index of shard t04: 39.03476309776306 seconds
+INFO:root:Time to create index of shard t02: 39.131465673446655 seconds
+INFO:root:Time to save index of shard t07: 1.4706089496612549 seconds
+INFO:root:Time to create index of shard t00: 39.55919885635376 seconds
+INFO:root:Time to save index of shard t01: 1.5710909366607666 seconds
+INFO:root:Time to save index of shard t05: 1.6231284141540527 seconds
+INFO:root:Time to save index of shard t03: 1.634359359741211 seconds
+INFO:root:Time to save index of shard t04: 1.7030541896820068 seconds
+INFO:root:Time to save index of shard t02: 1.6897954940795898 seconds
+INFO:root:Time to save index of shard t00: 1.7247450351715088 seconds
+INFO:root:Time to index all shards: 41.46342968940735 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to split the corpus: 1.5402212142944336 seconds
+INFO:root:Found 8 shards
+INFO:root:Time to create index of shard t06: 33.45599031448364 seconds
+INFO:root:Time to save index of shard t06: 1.5968241691589355 seconds
+INFO:root:Time to create index of shard t07: 35.5782630443573 seconds
+INFO:root:Time to create index of shard t05: 35.74219298362732 seconds
+INFO:root:Time to create index of shard t03: 35.75786089897156 seconds
+INFO:root:Time to create index of shard t01: 36.16225743293762 seconds
+INFO:root:Time to create index of shard t02: 37.066811084747314 seconds
+INFO:root:Time to save index of shard t07: 1.7232320308685303 seconds
+INFO:root:Time to create index of shard t00: 37.50962448120117 seconds
+INFO:root:Time to save index of shard t03: 1.7725679874420166 seconds
+INFO:root:Time to save index of shard t05: 2.0231783390045166 seconds
+INFO:root:Time to save index of shard t01: 1.9087984561920166 seconds
+INFO:root:Time to create index of shard t04: 38.519606590270996 seconds
+INFO:root:Time to save index of shard t02: 1.749351978302002 seconds
+INFO:root:Time to save index of shard t00: 1.7196674346923828 seconds
+INFO:root:Time to save index of shard t04: 2.1189017295837402 seconds
+INFO:root:Time to index all shards: 40.90185523033142 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to split the corpus: 1.621793270111084 seconds
+INFO:root:Found 8 shards
+INFO:root:Time to create index of shard t06: 33.03105902671814 seconds
+INFO:root:Time to save index of shard t06: 1.2420423030853271 seconds
+INFO:root:Time to create index of shard t01: 35.352691888809204 seconds
+INFO:root:Time to create index of shard t07: 35.38139724731445 seconds
+INFO:root:Time to create index of shard t03: 35.5564661026001 seconds
+INFO:root:Time to create index of shard t05: 35.555046796798706 seconds
+INFO:root:Time to create index of shard t00: 36.798282861709595 seconds
+INFO:root:Time to save index of shard t01: 1.5046660900115967 seconds
+INFO:root:Time to create index of shard t02: 36.89195251464844 seconds
+INFO:root:Time to save index of shard t07: 1.5324602127075195 seconds
+INFO:root:Time to save index of shard t03: 1.5552387237548828 seconds
+INFO:root:Time to save index of shard t05: 1.5913145542144775 seconds
+INFO:root:Time to create index of shard t04: 38.06775403022766 seconds
+INFO:root:Time to save index of shard t00: 1.648634910583496 seconds
+INFO:root:Time to save index of shard t02: 1.6048705577850342 seconds
+INFO:root:Time to save index of shard t04: 1.6640846729278564 seconds
+INFO:root:Time to index all shards: 39.97083902359009 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to split the corpus: 1.3966763019561768 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to split the corpus: 1.3545475006103516 seconds
+INFO:root:Found 8 shards
+INFO:root:Time to create index of shard t06: 32.17537236213684 seconds
+INFO:root:Time to save index of shard t06: 1.0705053806304932 seconds
+INFO:root:Time to create index of shard t03: 33.25321173667908 seconds
+INFO:root:Time to create index of shard t01: 33.542038679122925 seconds
+INFO:root:Time to create index of shard t07: 33.64849400520325 seconds
+INFO:root:Time to create index of shard t00: 34.02857494354248 seconds
+INFO:root:Time to create index of shard t02: 34.15932106971741 seconds
+INFO:root:Time to create index of shard t05: 34.16542387008667 seconds
+INFO:root:Time to save index of shard t03: 1.2890172004699707 seconds
+INFO:root:Time to save index of shard t01: 1.3677706718444824 seconds
+INFO:root:Time to save index of shard t07: 1.3994944095611572 seconds
+INFO:root:Time to save index of shard t00: 1.5103497505187988 seconds
+INFO:root:Time to create index of shard t04: 35.592668771743774 seconds
+INFO:root:Time to save index of shard t02: 1.4862427711486816 seconds
+INFO:root:Time to save index of shard t05: 1.4941747188568115 seconds
+INFO:root:Time to save index of shard t04: 1.308720588684082 seconds
+INFO:root:Time to index all shards: 37.13205623626709 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------

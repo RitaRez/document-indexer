@@ -3,7 +3,7 @@ from preprocesser import breaks_corpus, get_term_lexicon
 from utils import index_shard, run_indexer_thread_pool
 from collections import OrderedDict 
 
-logging.basicConfig(filename='min_corpus_main.log', level=logging.INFO)
+logging.basicConfig(filename='main.log', level=logging.INFO)
 
 
 MEGABYTE = 1024 * 1024
@@ -16,31 +16,23 @@ def main(memory_limit: str, corpus_path: str, index_path: str, verbose: bool, nu
     """
     Your main calls should be added here
     """
-
-    logging.info(f"Indexing corpus {corpus_path} to an indexer in {index_path} with {number_of_threads} threads and {memory_limit} MB of memory")
-
-    # seconds = time.time()
-    # # Amount of pieces we can manage to process for each thread due to memory limit
-    # file_size = int(str(subprocess.check_output(f"du -s {corpus_path}", shell=True), 'utf-8').split("\t")[0])
-    # # number_of_divisions = math.ceil((file_size)/(memory_limit*1024)) * number_of_threads
-    # number_of_divisions = number_of_threads
-    # # number_of_divisions = 1
     
-    # logging.info(f"Were divinding the corpus in  {str(number_of_divisions)} pieces")
-    # logging.info(f"Time to get the number of divions:  {time.time() - seconds} seconds")
+    # Amount of pieces we can manage to process for each thread due to memory limit
+    file_size = int(str(subprocess.check_output(f"du -s {corpus_path}", shell=True), 'utf-8').split("\t")[0])
+    number_of_divisions = math.ceil((1.5*file_size)/(memory_limit*1024) * number_of_threads)
+    number_of_divisions = number_of_divisions if number_of_divisions > number_of_threads else number_of_threads
+    
+    logging.info(f"Indexing corpus {corpus_path} of size {file_size} to an indexer in {index_path} with {number_of_threads} threads and {memory_limit} MB of memory")
+    logging.info(f"Were divinding the corpus in  {str(number_of_divisions)} pieces")
 
-    # seconds = time.time()
-    # shards_path = breaks_corpus(corpus_path, index_path, number_of_divisions)
-    # logging.info(f"Time to split the corpus: {time.time() - seconds} seconds")
+    seconds = time.time()
+    shards_path = breaks_corpus(corpus_path, index_path, number_of_divisions)
+    logging.info(f"Time to split the corpus: {time.time() - seconds} seconds")
 
-
-    # seconds = time.time()
-    # term_lexicon, number_of_words = get_term_lexicon(corpus_path, index_path)
-    # logging.info(f"Time to create lexicon: {time.time() - seconds} seconds")
-    # print(number_of_words)
+    time.sleep(3)
 
     seconds = time.time()    
-    run_indexer_thread_pool(term_lexicon, index_path, number_of_threads)
+    run_indexer_thread_pool(index_path, number_of_threads)
     logging.info(f"Time to index all shards: {time.time() - seconds} seconds")
 
 

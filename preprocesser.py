@@ -43,13 +43,11 @@ def breaks_corpus(corpus_path: str, index_path: str, number_of_divisions: int) -
 
     # number_of_documents = 4641784
     number_of_documents = int(str(subprocess.check_output(f"wc -l {corpus_path}", shell=True), 'utf-8').split(" ")[0])
-    
     size_of_division = math.ceil(number_of_documents / number_of_divisions)
 
-    cmd = f'split --lines={size_of_division} --numeric-suffixes --suffix-length=2 {corpus_path} {index_path + "shards/"}t'
-    os.system(cmd)
+    subprocess.Popen(f'split --lines={size_of_division} --numeric-suffixes --suffix-length=2 {corpus_path} {index_path + "shards/"}t', shell=True)
 
-    return index_path + "/shards/"
+    return index_path + "shards/"
           
 
 def get_term_lexicon(corpus_path: str, index_path):
