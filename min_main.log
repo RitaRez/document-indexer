@@ -1,3 +1,0 @@
-INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
-INFO:root:Were divinding the corpus in  8 pieces
-INFO:root:Time to split the corpus: 1.2106893062591553 seconds

@@ -1,9 +1,10 @@
 import sys, resource, argparse, os, logging, json, os, math, subprocess, time
 from preprocesser import breaks_corpus, get_term_lexicon
-from utils import index_shard, run_indexer_thread_pool
+from index_builder import index_shard, run_indexer_thread_pool
+from index_merger import run_merger_thread_pool
 from collections import OrderedDict 
 
-logging.basicConfig(filename='main.log', level=logging.INFO)
+logging.basicConfig(filename='min_main.log', level=logging.INFO)
 
 
 MEGABYTE = 1024 * 1024
@@ -34,6 +35,10 @@ def main(memory_limit: str, corpus_path: str, index_path: str, verbose: bool, nu
     seconds = time.time()    
     run_indexer_thread_pool(index_path, number_of_threads)
     logging.info(f"Time to index all shards: {time.time() - seconds} seconds")
+
+    seconds = time.time()    
+    run_merger_thread_pool(index_path, number_of_threads)
+    logging.info(f"Time to merge all indexes: {time.time() - seconds} seconds")
 
 
     logging.info(f"------------------------------------------------------------------------------------------------------------------------------------")
