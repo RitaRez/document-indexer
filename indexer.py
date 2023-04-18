@@ -13,14 +13,26 @@ def memory_limit(value):
     resource.setrlimit(resource.RLIMIT_AS, (limit, limit))
 
 
+def print_indexer_statistics(index_path: str, full_time: int, n_lists: int, sum_size_lists: int):
+    """Prints the statistics of the indexer"""
+    stats = { 
+        " Index Size ": int(str(subprocess.check_output(f"du -s {index_path}final_index", shell=True), 'utf-8').split("\t")[0]),
+        " Elapsed Time ": full_time ,
+        " Number of Lists ": n_lists ,
+        " Average List Size ": sum_size_lists/n_lists, 
+    }
+
+    print(stats)
+
+
 def main(memory_limit: str, corpus_path: str, index_path: str, verbose: bool, number_of_threads: int):
     """
     Your main calls should be added here
     """
-    
+    full_time = time.time()
     # Amount of pieces we can manage to process for each thread due to memory limit
     file_size = int(str(subprocess.check_output(f"du -s {corpus_path}", shell=True), 'utf-8').split("\t")[0])
-    number_of_divisions = math.ceil((1.5*file_size)/(memory_limit*1024) * number_of_threads)
+    number_of_divisions = math.ceil((1.3*file_size)/(memory_limit*1024) * number_of_threads)
     number_of_divisions = number_of_divisions if number_of_divisions > number_of_threads else number_of_threads
     
     logging.info(f"Indexing corpus {corpus_path} of size {file_size} to an indexer in {index_path} with {number_of_threads} threads and {memory_limit} MB of memory")
@@ -33,7 +45,7 @@ def main(memory_limit: str, corpus_path: str, index_path: str, verbose: bool, nu
     time.sleep(3)
 
     seconds = time.time()    
-    run_indexer_thread_pool(index_path, number_of_threads)
+    run_indexer_thread_pool(index_path, number_of_threads, number_of_divisions)
     logging.info(f"Time to index all shards: {time.time() - seconds} seconds")
 
     seconds = time.time()    
@@ -41,7 +53,11 @@ def main(memory_limit: str, corpus_path: str, index_path: str, verbose: bool, nu
     logging.info(f"Time to merge all indexes: {time.time() - seconds} seconds")
 
 
+    full_time = time.time() - full_time
+    logging.info(f"Total time to index corpus {corpus_path} of size {file_size} to an indexer in {index_path} with {number_of_threads} threads and {memory_limit} MB of memory: {full_time} seconds")
     logging.info(f"------------------------------------------------------------------------------------------------------------------------------------")
+
+
 
 
 
@@ -66,9 +82,9 @@ if __name__ == "__main__":
         main(args.memory_limit, args.corpus_path, args.index_path, args.verbose, args.number_of_threads)
     except MemoryError:
         sys.stderr.write('\n\nERROR: Memory Exception\n')
-        sys.exit(1)
         logging.info(f"MEMORY ERROR")
         logging.info(f"------------------------------------------------------------------------------------------------------------------------------------")
+        sys.exit(1)
 
 
 

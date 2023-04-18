@@ -29,3 +29,310 @@ INFO:root:Merging ../output/indexes/t00t01t02t03 and ../output/indexes/t04t05t06
 INFO:root:Time to merge all files: 46.74182438850403 seconds
 INFO:root:Time to merge all indexes: 46.815199851989746 seconds
 INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to split the corpus: 1.3305437564849854 seconds
+INFO:root:Found 8 shards
+INFO:root:Time to create index of shard t06: 29.05055832862854 seconds
+INFO:root:Time to save index of shard t06: 1.3843262195587158 seconds
+INFO:root:Time to create index of shard t03: 30.51247262954712 seconds
+INFO:root:Time to create index of shard t07: 30.97655940055847 seconds
+INFO:root:Time to create index of shard t05: 31.01848530769348 seconds
+INFO:root:Time to create index of shard t04: 31.29897141456604 seconds
+INFO:root:Time to create index of shard t01: 32.00363373756409 seconds
+INFO:root:Time to save index of shard t03: 1.5048587322235107 seconds
+INFO:root:Time to create index of shard t02: 32.65931224822998 seconds
+INFO:root:Time to save index of shard t05: 1.6443026065826416 seconds
+INFO:root:Time to save index of shard t07: 1.7532849311828613 seconds
+INFO:root:Time to create index of shard t00: 32.88787770271301 seconds
+INFO:root:Time to save index of shard t04: 1.6548452377319336 seconds
+INFO:root:Time to save index of shard t01: 1.5019454956054688 seconds
+INFO:root:Time to save index of shard t02: 1.4431219100952148 seconds
+INFO:root:Time to save index of shard t00: 1.5067617893218994 seconds
+INFO:root:Time to index all shards: 34.713066816329956 seconds
+INFO:root:Merging ../output/indexes/t00 and ../output/indexes/t01 into ../output/indexes/t00t01
+INFO:root:Merging ../output/indexes/t02 and ../output/indexes/t03 into ../output/indexes/t02t03
+INFO:root:Merging ../output/indexes/t04 and ../output/indexes/t05 into ../output/indexes/t04t05
+INFO:root:Merging ../output/indexes/t06 and ../output/indexes/t07 into ../output/indexes/t06t07
+INFO:root:Merging ../output/indexes/t00t01 and ../output/indexes/t02t03 into ../output/indexes/t00t01t02t03
+INFO:root:Merging ../output/indexes/t04t05 and ../output/indexes/t06t07 into ../output/indexes/t04t05t06t07
+INFO:root:Merging ../output/indexes/t00t01t02t03 and ../output/indexes/t04t05t06t07 into ../output/final_index
+INFO:root:Time to merge all files: 43.0510630607605 seconds
+INFO:root:Time to merge all indexes: 43.19502305984497 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to split the corpus: 2.149489641189575 seconds
+INFO:root:Found 8 shards
+INFO:root:Time to create index of shard t06: 49.675649642944336 seconds
+INFO:root:Time to save index of shard t06: 2.362722873687744 seconds
+INFO:root:Time to create index of shard t07: 52.44133687019348 seconds
+INFO:root:Time to create index of shard t01: 52.87735962867737 seconds
+INFO:root:Time to create index of shard t05: 53.62828612327576 seconds
+INFO:root:Time to create index of shard t03: 53.662741899490356 seconds
+INFO:root:Time to create index of shard t04: 54.510884046554565 seconds
+INFO:root:Time to create index of shard t02: 54.681058406829834 seconds
+INFO:root:Time to create index of shard t00: 54.8340630531311 seconds
+INFO:root:Time to save index of shard t07: 2.4768800735473633 seconds
+INFO:root:Time to save index of shard t01: 2.638982057571411 seconds
+INFO:root:Time to save index of shard t05: 2.6817219257354736 seconds
+INFO:root:Time to save index of shard t03: 2.8186376094818115 seconds
+INFO:root:Time to save index of shard t04: 2.7645111083984375 seconds
+INFO:root:Time to save index of shard t02: 2.6079182624816895 seconds
+INFO:root:Time to save index of shard t00: 2.777773380279541 seconds
+INFO:root:Time to index all shards: 58.01692867279053 seconds
+INFO:root:Merging ../output/indexes/t00 and ../output/indexes/t01 into ../output/indexes/t00t01
+INFO:root:Merging ../output/indexes/t02 and ../output/indexes/t03 into ../output/indexes/t02t03
+INFO:root:Merging ../output/indexes/t04 and ../output/indexes/t05 into ../output/indexes/t04t05
+INFO:root:Merging ../output/indexes/t06 and ../output/indexes/t07 into ../output/indexes/t06t07
+INFO:root:Merging ../output/indexes/t00t01 and ../output/indexes/t02t03 into ../output/indexes/t00t01t02t03
+INFO:root:Merging ../output/indexes/t04t05 and ../output/indexes/t06t07 into ../output/indexes/t04t05t06t07
+INFO:root:Merging ../output/indexes/t00t01t02t03 and ../output/indexes/t04t05t06t07 into ../output/final_index
+INFO:root:Merging ../output/indexes/t00t01t02t03 and ../output/indexes/t04t05t06t07 into ../output/final_index
+INFO:root:Merging ../output/indexes/t00t01t02t03 and ../output/indexes/t04t05t06t07 into ../output/final_index
+INFO:root:Merging ../output/indexes/t00t01t02t03 and ../output/indexes/t04t05t06t07 into ../output/final_index
+--------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../corpus.jsonl of size 2178328 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  25 pieces
+INFO:root:Time to split the corpus: 36.307373046875 seconds
+INFO:root:Found 5 shards
+INFO:root:Time to create index of shard t00: 171.49349093437195 seconds
+INFO:root:Time to save index of shard t00: 6.126244783401489 seconds
+INFO:root:Time to create index of shard t02: 181.3072211742401 seconds
+INFO:root:Time to create index of shard t04: 185.16854739189148 seconds
+INFO:root:Time to create index of shard t03: 186.65759754180908 seconds
+INFO:root:Time to save index of shard t02: 8.27392053604126 seconds
+INFO:root:Time to create index of shard t01: 190.74480867385864 seconds
+INFO:root:Time to save index of shard t04: 9.214116096496582 seconds
+INFO:root:Time to save index of shard t03: 9.253504037857056 seconds
+INFO:root:Time to save index of shard t01: 9.579254627227783 seconds
+INFO:root:Time to index all shards: 201.7719748020172 seconds
+INFO:root:Merging ../output/indexes/t00 and ../output/indexes/t01 into ../output/indexes/t00t01
+INFO:root:Merging ../output/indexes/t02 and ../output/indexes/t03 into ../output/indexes/t02t03
+INFO:root:Merging ../output/indexes/t00t01 and ../output/indexes/t02t03 into ../output/indexes/t00t01t02t03
+INFO:root:Merging ../output/indexes/t00t01t02t03 and ../output/indexes/t04 into ../output/final_index
+INFO:root:Time to merge all files: 172.9915840625763 seconds
+INFO:root:Time to merge all indexes: 173.38179922103882 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../corpus.jsonl of size 2178328 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  25 pieces
+INFO:root:Time to split the corpus: 32.01764917373657 seconds
+INFO:root:Found 5 shards
+INFO:root:Time to create index of shard t00: 225.72066712379456 seconds
+INFO:root:Time to save index of shard t00: 8.683131694793701 seconds
+INFO:root:Time to create index of shard t04: 240.20471668243408 seconds
+INFO:root:Time to create index of shard t02: 241.94679164886475 seconds
+INFO:root:Time to create index of shard t01: 242.08961009979248 seconds
+INFO:root:Time to create index of shard t03: 242.94107937812805 seconds
+INFO:root:Time to save index of shard t04: 8.827626943588257 seconds
+INFO:root:Time to save index of shard t02: 9.033486604690552 seconds
+INFO:root:Time to save index of shard t01: 9.18514633178711 seconds
+INFO:root:Time to save index of shard t03: 9.020420789718628 seconds
+INFO:root:Time to index all shards: 253.67994689941406 seconds
+INFO:root:Merging ../output/indexes/t00 and ../output/indexes/t01 into ../output/indexes/t00t01
+INFO:root:Merging ../output/indexes/t02 and ../output/indexes/t03 into ../output/indexes/t02t03
+INFO:root:Merging ../output/indexes/t00t01 and ../output/indexes/t02t03 into ../output/indexes/t00t01t02t03
+INFO:root:Merging ../output/indexes/t00t01t02t03 and ../output/indexes/t04 into ../output/final_index
+INFO:root:Time to merge all files: 224.9260709285736 seconds
+INFO:root:Time to merge all indexes: 225.54390025138855 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../corpus.jsonl of size 2178328 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  22 pieces
+INFO:root:Time to split the corpus: 38.74992561340332 seconds
+INFO:root:Found 22 shards
+INFO:root:Time to create index of shard t00: 412.77145648002625 seconds
+INFO:root:Time to save index of shard t00: 12.042297601699829 seconds
+INFO:root:Time to create index of shard t01: 431.4049651622772 seconds
+INFO:root:Time to create index of shard t02: 431.60250973701477 seconds
+INFO:root:Time to create index of shard t14: 431.82371616363525 seconds
+INFO:root:Time to create index of shard t04: 441.0362105369568 seconds
+INFO:root:Time to create index of shard t15: 435.4378342628479 seconds
+INFO:root:Time to save index of shard t01: 16.302353620529175 seconds
+INFO:root:Time to save index of shard t02: 16.90870499610901 seconds
+INFO:root:Time to save index of shard t14: 15.929279327392578 seconds
+INFO:root:Time to save index of shard t04: 15.831869125366211 seconds
+INFO:root:Time to create index of shard t18: 442.50276947021484 seconds
+INFO:root:Time to save index of shard t15: 15.671408891677856 seconds
+INFO:root:Time to create index of shard t19: 448.30254006385803 seconds
+INFO:root:Time to save index of shard t18: 13.84607481956482 seconds
+INFO:root:Time to save index of shard t19: 13.38631534576416 seconds
+INFO:root:Time to create index of shard t20: 246.1306493282318 seconds
+INFO:root:Time to save index of shard t20: 10.333121299743652 seconds
+INFO:root:Time to create index of shard t21: 239.27659797668457 seconds
+INFO:root:Time to save index of shard t21: 11.337889909744263 seconds
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to split the corpus: 1.665036678314209 seconds
+INFO:root:Found 8 shards
+INFO:root:Time to create index of shard t06: 30.261281490325928 seconds
+INFO:root:Time to save index of shard t06: 1.424584150314331 seconds
+INFO:root:Time to create index of shard t01: 32.43434381484985 seconds
+INFO:root:Time to create index of shard t03: 32.56121587753296 seconds
+INFO:root:Time to create index of shard t07: 32.8470139503479 seconds
+INFO:root:Time to create index of shard t05: 33.12148571014404 seconds
+INFO:root:Time to create index of shard t04: 33.52782344818115 seconds
+INFO:root:Time to save index of shard t01: 1.5353474617004395 seconds
+INFO:root:Time to save index of shard t03: 1.4694693088531494 seconds
+INFO:root:Time to create index of shard t02: 34.210532665252686 seconds
+INFO:root:Time to save index of shard t07: 1.4260427951812744 seconds
+INFO:root:Time to save index of shard t05: 1.4298608303070068 seconds
+INFO:root:Time to create index of shard t00: 34.95412588119507 seconds
+INFO:root:Time to save index of shard t04: 1.4237260818481445 seconds
+INFO:root:Time to save index of shard t02: 1.5222136974334717 seconds
+INFO:root:Time to save index of shard t00: 2.2718794345855713 seconds
+INFO:root:Time to index all shards: 37.421077251434326 seconds
+INFO:root:Merging ../output/indexes/t00 and ../output/indexes/t01 into ../output/indexes/t00t01
+INFO:root:Merging ../output/indexes/t02 and ../output/indexes/t03 into ../output/indexes/t02t03
+INFO:root:Merging ../output/indexes/t04 and ../output/indexes/t05 into ../output/indexes/t04t05
+INFO:root:Merging ../output/indexes/t06 and ../output/indexes/t07 into ../output/indexes/t06t07
+INFO:root:Merging ../output/indexes/t00t01 and ../output/indexes/t02t03 into ../output/indexes/t00t01t02t03
+INFO:root:Merging ../output/indexes/t04t05 and ../output/indexes/t06t07 into ../output/indexes/t04t05t06t07
+INFO:root:Merging ../output/indexes/t00t01t02t03 and ../output/indexes/t04t05t06t07 into ../output/final_index
+INFO:root:Time to merge all files: 42.285792112350464 seconds
+INFO:root:Time to merge all indexes: 42.38964128494263 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../corpus.jsonl of size 2178328 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  22 pieces
+INFO:root:Time to split the corpus: 34.19222331047058 seconds
+INFO:root:Found 22 shards
+INFO:root:Time to create index of shard t00: 390.1772060394287 seconds
+INFO:root:Time to save index of shard t00: 10.65829610824585 seconds
+INFO:root:Time to create index of shard t01: 412.6327862739563 seconds
+INFO:root:Time to create index of shard t03: 414.5740191936493 seconds
+INFO:root:Time to create index of shard t06: 414.9477596282959 seconds
+INFO:root:Time to create index of shard t04: 419.2950813770294 seconds
+INFO:root:Time to create index of shard t02: 420.4696373939514 seconds
+INFO:root:Time to create index of shard t07: 421.9741635322571 seconds
+INFO:root:Time to create index of shard t05: 422.4507186412811 seconds
+INFO:root:Time to save index of shard t01: 14.326212406158447 seconds
+INFO:root:Time to save index of shard t03: 13.833879470825195 seconds
+INFO:root:Time to save index of shard t06: 14.329261541366577 seconds
+INFO:root:Time to save index of shard t04: 13.910102128982544 seconds
+INFO:root:Time to save index of shard t02: 14.442809104919434 seconds
+INFO:root:Time to save index of shard t07: 14.685958623886108 seconds
+INFO:root:Time to save index of shard t05: 15.469052076339722 seconds
+INFO:root:Time to create index of shard t11: 469.2281608581543 seconds
+INFO:root:Time to create index of shard t08: 502.5294728279114 seconds
+INFO:root:Time to save index of shard t11: 19.426284790039062 seconds
+INFO:root:Time to create index of shard t12: 485.0823540687561 seconds
+INFO:root:Time to save index of shard t08: 20.762065887451172 seconds
+INFO:root:Time to create index of shard t13: 493.4552221298218 seconds
+INFO:root:Time to create index of shard t10: 501.47168827056885 seconds
+INFO:root:Time to create index of shard t14: 494.31340503692627 seconds
+INFO:root:Time to create index of shard t15: 496.0027289390564 seconds
+INFO:root:Time to save index of shard t12: 16.67573070526123 seconds
+INFO:root:Time to create index of shard t09: 514.3312041759491 seconds
+INFO:root:Time to save index of shard t13: 16.113924741744995 seconds
+INFO:root:Time to save index of shard t10: 16.348639011383057 seconds
+INFO:root:Time to save index of shard t14: 16.19871735572815 seconds
+INFO:root:Time to save index of shard t15: 15.725072860717773 seconds
+INFO:root:Time to save index of shard t09: 13.53224492073059 seconds
+INFO:root:Time to create index of shard t17: 230.86719965934753 seconds
+INFO:root:Time to create index of shard t16: 243.35722589492798 seconds
+INFO:root:Time to create index of shard t18: 228.25926184654236 seconds
+INFO:root:Time to save index of shard t17: 9.364680767059326 seconds
+INFO:root:Time to create index of shard t21: 220.9607629776001 seconds
+INFO:root:Time to create index of shard t19: 224.22015523910522 seconds
+INFO:root:Time to create index of shard t20: 223.31567764282227 seconds
+INFO:root:Time to save index of shard t16: 9.197519779205322 seconds
+INFO:root:Time to save index of shard t18: 9.836369514465332 seconds
+INFO:root:Time to save index of shard t21: 9.954917192459106 seconds
+INFO:root:Time to save index of shard t19: 10.166737794876099 seconds
+INFO:root:Time to save index of shard t20: 10.152682781219482 seconds
+INFO:root:Time to index all shards: 1201.5589609146118 seconds
+INFO:root:Merging ../output/indexes/t00 and ../output/indexes/t01 into ../output/indexes/t00t01
+INFO:root:Merging ../output/indexes/t02 and ../output/indexes/t03 into ../output/indexes/t02t03
+INFO:root:Merging ../output/indexes/t14 and ../output/indexes/t15 into ../output/indexes/t14t15
+INFO:root:Merging ../output/indexes/t04 and ../output/indexes/t05 into ../output/indexes/t04t05
+INFO:root:Merging ../output/indexes/t06 and ../output/indexes/t07 into ../output/indexes/t06t07
+INFO:root:Merging ../output/indexes/t08 and ../output/indexes/t09 into ../output/indexes/t08t09
+INFO:root:Merging ../output/indexes/t10 and ../output/indexes/t11 into ../output/indexes/t10t11
+INFO:root:Merging ../output/indexes/t12 and ../output/indexes/t13 into ../output/indexes/t12t13
+INFO:root:Merging ../output/indexes/t16 and ../output/indexes/t17 into ../output/indexes/t16t17
+INFO:root:Merging ../output/indexes/t18 and ../output/indexes/t19 into ../output/indexes/t18t19
+INFO:root:Merging ../output/indexes/t20 and ../output/indexes/t21 into ../output/indexes/t20t21
+INFO:root:Merging ../output/indexes/t00t01 and ../output/indexes/t02t03 into ../output/indexes/t00t01t02t03
+INFO:root:Merging ../output/indexes/t04t05 and ../output/indexes/t06t07 into ../output/indexes/t04t05t06t07
+INFO:root:Merging ../output/indexes/t08t09 and ../output/indexes/t10t11 into ../output/indexes/t08t09t10t11
+INFO:root:Merging ../output/indexes/t12t13 and ../output/indexes/t14t15 into ../output/indexes/t12t13t14t15
+INFO:root:Merging ../output/indexes/t16t17 and ../output/indexes/t18t19 into ../output/indexes/t16t17t18t19
+INFO:root:Merging ../output/indexes/t00t01t02t03 and ../output/indexes/t04t05t06t07 into ../output/indexes/t00t01t02t03t04t05t06t07
+INFO:root:Merging ../output/indexes/t08t09t10t11 and ../output/indexes/t12t13t14t15 into ../output/indexes/t08t09t10t11t12t13t14t15
+INFO:root:Merging ../output/indexes/t16t17t18t19 and ../output/indexes/t20t21 into ../output/indexes/t16t17t18t19t20t21
+INFO:root:Merging ../output/indexes/t00t01t02t03t04t05t06t07 and ../output/indexes/t08t09t10t11t12t13t14t15 into ../output/indexes/t00t01t02t03t04t05t06t07t08t09t10t11t12t13t14t15
+INFO:root:Merging ../output/indexes/t00t01t02t03t04t05t06t07t08t09t10t11t12t13t14t15 and ../output/indexes/t16t17t18t19t20t21 into ../output/final_index
+--------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../corpus.jsonl of size 2178328 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  22 pieces
+INFO:root:Time to split the corpus: 55.74081110954285 seconds
+INFO:root:Found 22 shards
+INFO:root:Time to create index of shard t00: 428.3265335559845 seconds
+INFO:root:Time to save index of shard t00: 12.864299774169922 seconds
+INFO:root:Time to create index of shard t01: 445.23694944381714 seconds
+INFO:root:Time to create index of shard t03: 447.2950360774994 seconds
+INFO:root:Time to create index of shard t02: 449.6329891681671 seconds
+INFO:root:Time to create index of shard t06: 451.22334718704224 seconds
+INFO:root:Time to create index of shard t05: 453.52791690826416 seconds
+INFO:root:Time to create index of shard t04: 454.77745389938354 seconds
+INFO:root:Time to save index of shard t01: 16.699610710144043 seconds
+INFO:root:Time to create index of shard t07: 462.27389097213745 seconds
+INFO:root:Time to save index of shard t03: 17.447659015655518 seconds
+INFO:root:Time to save index of shard t02: 17.479292392730713 seconds
+INFO:root:Time to save index of shard t06: 17.132702112197876 seconds
+INFO:root:Time to save index of shard t05: 16.709754467010498 seconds
+INFO:root:Time to save index of shard t04: 16.87914752960205 seconds
+INFO:root:Time to save index of shard t07: 16.432203769683838 seconds
+INFO:root:Time to create index of shard t11: 439.85883831977844 seconds
+INFO:root:Time to create index of shard t08: 466.9742624759674 seconds
+INFO:root:Time to save index of shard t11: 15.198505163192749 seconds
+INFO:root:Time to save index of shard t08: 16.688053131103516 seconds
+INFO:root:Time to create index of shard t12: 458.4313814640045 seconds
+INFO:root:Time to create index of shard t10: 470.3622591495514 seconds
+INFO:root:Time to create index of shard t14: 464.5399663448334 seconds
+INFO:root:Time to create index of shard t13: 467.66771364212036 seconds
+INFO:root:Time to create index of shard t09: 476.05025601387024 seconds
+INFO:root:Time to create index of shard t15: 460.15124702453613 seconds
+INFO:root:Time to save index of shard t12: 16.11106276512146 seconds
+INFO:root:Time to save index of shard t10: 17.955453634262085 seconds
+INFO:root:Time to save index of shard t14: 16.995458364486694 seconds
+INFO:root:Time to save index of shard t09: 17.40659499168396 seconds
+INFO:root:Time to save index of shard t13: 17.92798376083374 seconds
+INFO:root:Time to save index of shard t15: 17.632165908813477 seconds
+INFO:root:Time to create index of shard t16: 358.6103820800781 seconds
+INFO:root:Time to create index of shard t17: 356.74295258522034 seconds
+INFO:root:Time to save index of shard t16: 12.527735710144043 seconds
+INFO:root:Time to save index of shard t17: 12.655412435531616 seconds
+INFO:root:Time to create index of shard t18: 356.7867822647095 seconds
+INFO:root:Time to create index of shard t20: 348.8057038784027 seconds
+INFO:root:Time to create index of shard t21: 348.91247940063477 seconds
+INFO:root:Time to create index of shard t19: 354.78029346466064 seconds
+INFO:root:Time to save index of shard t18: 11.052111864089966 seconds
+INFO:root:Time to save index of shard t20: 11.029341220855713 seconds
+INFO:root:Time to save index of shard t21: 10.812137126922607 seconds
+INFO:root:Time to save index of shard t19: 11.045314073562622 seconds
+INFO:root:Time to index all shards: 1341.6400516033173 seconds
+INFO:root:Merging ../output/indexes/t00 and ../output/indexes/t01 into ../output/indexes/t00t01
+INFO:root:Merging ../output/indexes/t02 and ../output/indexes/t03 into ../output/indexes/t02t03
+INFO:root:Merging ../output/indexes/t06 and ../output/indexes/t07 into ../output/indexes/t06t07
+INFO:root:Merging ../output/indexes/t04 and ../output/indexes/t05 into ../output/indexes/t04t05
+INFO:root:Merging ../output/indexes/t08 and ../output/indexes/t09 into ../output/indexes/t08t09
+INFO:root:Merging ../output/indexes/t10 and ../output/indexes/t11 into ../output/indexes/t10t11
+INFO:root:Merging ../output/indexes/t12 and ../output/indexes/t13 into ../output/indexes/t12t13
+INFO:root:Merging ../output/indexes/t14 and ../output/indexes/t15 into ../output/indexes/t14t15
+INFO:root:Merging ../output/indexes/t16 and ../output/indexes/t17 into ../output/indexes/t16t17
+INFO:root:Merging ../output/indexes/t18 and ../output/indexes/t19 into ../output/indexes/t18t19
+INFO:root:Merging ../output/indexes/t20 and ../output/indexes/t21 into ../output/indexes/t20t21
+INFO:root:Merging ../output/indexes/t00t01 and ../output/indexes/t02t03 into ../output/indexes/t00t01t02t03
+INFO:root:Merging ../output/indexes/t04t05 and ../output/indexes/t06t07 into ../output/indexes/t04t05t06t07
+INFO:root:Merging ../output/indexes/t08t09 and ../output/indexes/t10t11 into ../output/indexes/t08t09t10t11
+INFO:root:Merging ../output/indexes/t12t13 and ../output/indexes/t14t15 into ../output/indexes/t12t13t14t15
+INFO:root:Merging ../output/indexes/t16t17 and ../output/indexes/t18t19 into ../output/indexes/t16t17t18t19
+INFO:root:Merging ../output/indexes/t00t01t02t03 and ../output/indexes/t04t05t06t07 into ../output/indexes/t00t01t02t03t04t05t06t07
+INFO:root:Merging ../output/indexes/t08t09t10t11 and ../output/indexes/t12t13t14t15 into ../output/indexes/t08t09t10t11t12t13t14t15
+INFO:root:Merging ../output/indexes/t16t17t18t19 and ../output/indexes/t20t21 into ../output/indexes/t16t17t18t19t20t21
+INFO:root:Merging ../output/indexes/t00t01t02t03t04t05t06t07 and ../output/indexes/t08t09t10t11t12t13t14t15 into ../output/indexes/t00t01t02t03t04t05t06t07t08t09t10t11t12t13t14t15
+INFO:root:Merging ../output/indexes/t00t01t02t03t04t05t06t07t08t09t10t11t12t13t14t15 and ../output/indexes/t16t17t18t19t20t21 into ../output/final_index
+INFO:root:Time to merge all files: 1196.4178042411804 seconds
+INFO:root:Time to merge all indexes: 1196.7492513656616 seconds
+INFO:root:Total time to index corpus ../corpus.jsonl of size 2178328 to an indexer in ../output/ with 8 threads and 1024 MB of memory: 2597.1509730815887 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------

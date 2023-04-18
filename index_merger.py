@@ -7,97 +7,143 @@ from multiprocessing import Pool
 logging.basicConfig(filename='main.log', level=logging.INFO)
 
 
+
+def encode_to_binary(word_id: int, docs: list[int, int]) -> bytearray:
+    """Encodes a word and its document frequencies to binary"""
+    
+    bin_array = bytearray()
+    bin_array += word_id.to_bytes(4, "big")
+    bin_array += len(docs).to_bytes(4, "big")
+
+    for doc in docs:
+        try:
+            bin_array += int(doc["id"]).to_bytes(4, "big")
+            bin_array += int(doc["freq"]).to_bytes(2, "big")
+        except TypeError:
+            print(f"Error encoding {word_id, doc} to binary")
+
+    return bin_array, len(bin_array)
+
+
+def save_index_statistics(number_of_words: int, number_of_docs: int, index_path: str):
+    pass #TODO
+
+
 def save_term_lexicon(index_path: str, term_lexicon: dict):
     """Saves the term lexicon to a file"""
 
     with open(index_path + "term_lexicon.txt", 'w') as fp:
         for word in term_lexicon:
-            fp.write(word + " " + str(term_lexicon[word]) + "\n")
+            fp.write(word + " " + str(term_lexicon[word][0]) + " " + str(term_lexicon[word][1]) + " " + str(term_lexicon[word][2]) + "\n")
 
 
-def builds_term_lexicon(last_merge: bool, doc: dict, term_lexicon: dict, number_of_words: int):
+def builds_term_lexicon(word: str, lexicon: dict, number_of_words: int, byte_start: int, byte_end: int) -> (int, int):
     """Builds the term lexicon"""
     
-    if last_merge:                                                  # Caso seja a última junção, cria o lexicon  
-        number_of_words += 1
-        term_lexicon[doc['word']] = number_of_words                 #Adiciona as palavras restantes no lexicon
+    lexicon.write(word + " " + str(number_of_words) + " " + str(byte_start) + " " + str(byte_end) + "\n")
+    number_of_words += 1
     
-    return number_of_words, term_lexicon
+    return number_of_words
 
-def finishes_reading_index(f, output_file, term_lexicon: dict, last_merge: bool, number_of_words: int):
-    """Finishes reading the index and writes the rest of the lines to the output file"""    
+
+def builds_last_index(output_file, doc: list, lexicon, number_of_words: int, byte_offset: int) -> (int, int, int):
+    """Builds the last index"""
     
-    for line in f.readlines():                                          # Escreve o restante do segundo index
+    bin_array, doc_len = encode_to_binary(number_of_words, doc["docs"])
+    output_file.write(bin_array)                                      
+    number_of_words = builds_term_lexicon(
+        word = doc['word'], 
+        lexicon = lexicon, 
+        number_of_words = number_of_words, 
+        byte_start = byte_offset, 
+        byte_end = byte_offset + doc_len
+    )       
+    
+    return byte_offset + doc_len, number_of_words  
+
+
+def finishes_reading_index(f, output_file, lexicon, last_merge: bool, number_of_words: int, byte_offset: int):
+    """Finishes reading the index and writes the rest of the lines to the output file"""    
+
+    for line in f.readlines():            
         doc = json.loads(line)
-        output_file.write(json.dumps(doc) + "\n")
-        number_of_words, term_lexicon = builds_term_lexicon(last_merge, doc, term_lexicon, number_of_words)
-        
-    return number_of_words, term_lexicon
+        if last_merge:
+            byte_offset, number_of_words = builds_last_index(output_file, doc, lexicon, number_of_words, byte_offset)
+        else:
+            output_file.write(json.dumps(doc) + "\n")
+                                                                   
+    return number_of_words, byte_offset
+
 
 def merger(index_path: str, first_file: str, second_file: str, last_merge=False):
     """Merges two files into one"""    
     
-    number_of_words = 0; term_lexicon = {}
-    output_file = index_path + "final_index" if last_merge else index_path + "indexes/" + first_file + second_file
+    number_of_words = 0; byte_offset = 0
+    output_file_path = index_path + "final_index" if last_merge else index_path + "indexes/" + first_file + second_file
     
-    logging.info(f"Merging {index_path}indexes/{first_file} and {index_path}indexes/{second_file} into {output_file}")
+    logging.info(f"Merging {index_path}indexes/{first_file} and {index_path}indexes/{second_file} into {output_file_path}")
 
-    with open(index_path + "indexes/" + first_file, 'r') as ff, open(index_path + "indexes/" + second_file, 'r') as fs, open(output_file, 'w') as output_file:    
+    if last_merge:
+        output_file = open(output_file_path, 'wb')
+    else :
+        output_file = open(output_file_path, 'w')
+        
+    with open(index_path + "indexes/" + first_file, 'r') as ff, open(index_path + "indexes/" + second_file, 'r') as fs, open(index_path + "term_lexicon.txt", 'w') as lexicon:    
         
         ff_line = ff.readline()
         fs_line = fs.readline()
-        while True:
-            
-            if ff_line == "":                                                                          # Caso o primeiro index tenha acabado
-                number_of_words, term_lexicon = finishes_reading_index(fs, output_file, term_lexicon, last_merge, number_of_words)     # Escreve o restante do segundo index
+        while True:  
+            if ff_line == "":                                                                         
+                number_of_words, byte_offset = finishes_reading_index(fs, output_file, lexicon, last_merge, number_of_words, byte_offset)    
                 break
             
-            elif fs_line == "":                                                                        # Caso o segundo arquivo tenha acabado
-                number_of_words, term_lexicon = finishes_reading_index(ff, output_file, term_lexicon, last_merge, number_of_words)     # Escreve o restante do primeiro arquivo
+            elif fs_line == "":                                                                    
+                number_of_words, byte_offset = finishes_reading_index(ff, output_file, lexicon, last_merge, number_of_words, byte_offset)     
                 break
             
-            elif ff_line == "" and fs_line == "":                                                      # Caso os dois arquivos tenham acabado juntos
+            elif ff_line == "" and fs_line == "":                                                      
                 break
             
-            else:                                                                                      # Caso nenhum dos arquivos tenha acabado
-                try:
-                    ff_doc = json.loads(ff_line); fs_doc = json.loads(fs_line)                             # Carrega ambas as linhas
-                except:
-                    print("Error loading json:")
-                    print("-----------------------------------------------------------------")
-                    print("-" + ff_line + "-")
-                    print("------------------------------------------------------------------")
-                    print("-" + fs_line + "-")
-                    print("-----------------------------------------------------------------")
-                    break  
-                if  ff_doc['word'] == fs_doc['word']:                                                  # Caso as palavras sejam iguais   
-                    ff_doc['docs'] += fs_doc['docs']                                                   # Junta os documentos
-                    
-                    output_file.write(json.dumps(ff_doc) + "\n")                                       # Escreve a linha no arquivo de saída    
-                    number_of_words, term_lexicon = builds_term_lexicon(last_merge, ff_doc, term_lexicon, number_of_words)             # Adiciona a palavra no lexicon
+            else:                                                                                   
+                ff_doc = json.loads(ff_line); fs_doc = json.loads(fs_line)                            
+                if  ff_doc['word'] == fs_doc['word']:     
 
-                    ff_line = ff.readline(); fs_line = fs.readline()                                   # Lê as próximas linhas dos arquivos
+                    ff_doc['docs'] += fs_doc['docs']
+
+                    if last_merge:
+                        byte_offset, number_of_words = builds_last_index(output_file, ff_doc, lexicon, number_of_words, byte_offset)
+                    else:
+                        output_file.write(json.dumps(ff_doc) + "\n")                                            
+                                                                          
+                    ff_line = ff.readline(); fs_line = fs.readline()                              
                 
-                elif ff_doc['word'] < fs_doc['word']:                                                  # Caso a palavra do primeiro arquivo seja menor
-                    output_file.write(json.dumps(ff_doc) + "\n")                                       # Escreve a linha no arquivo de saída
-                    number_of_words, term_lexicon = builds_term_lexicon(last_merge, ff_doc, term_lexicon, number_of_words)             # Adiciona a palavra no lexicon
+                elif ff_doc['word'] < fs_doc['word']:                                                
 
-                    ff_line = ff.readline()                                                            # Lê a próxima linha do primeiro arquivo
+                    if last_merge:
+                        byte_offset, number_of_words = builds_last_index(output_file, ff_doc, lexicon, number_of_words, byte_offset)
+                    else:
+                        output_file.write(json.dumps(ff_doc) + "\n")       
+
+                    ff_line = ff.readline()                                                         
                 
-                else:                                                                                  # Caso a palavra do segundo arquivo seja menor
-                    output_file.write(json.dumps(fs_doc) + "\n")                                       # Escreve a linha no arquivo de saída
-                    number_of_words, term_lexicon = builds_term_lexicon(last_merge, fs_doc, term_lexicon, number_of_words)             # Adiciona a palavra no lexicon
+                else:                                                                                  
 
-                    fs_line = fs.readline()                                                            # Lê a próxima linha do segundo arquivo
+                    if last_merge:
+                        byte_offset, number_of_words = builds_last_index(output_file, fs_doc, lexicon, number_of_words, byte_offset)
+                    else:
+                        output_file.write(json.dumps(fs_doc) + "\n")     
+
+                    fs_line = fs.readline()                                                         
                 
+    output_file.close()
 
-    os.remove(os.path.join(index_path + "indexes/", first_file))                                       # Apaga os arquivos que foram mesclados
+    os.remove(os.path.join(index_path + "indexes/", first_file))                                     
     os.remove(os.path.join(index_path + "indexes/", second_file))
 
-    if last_merge:
-        save_term_lexicon(index_path, term_lexicon)                                                                # Salva o lexicon no arquivo term_lexicon.txt
+                                                        
 
     time.sleep(1)
+
 
 def clear_output_folders(index_path: str):
     """Deletes all files in the output folders"""
@@ -133,6 +179,4 @@ def run_merger_thread_pool(index_path: str, number_of_threads: int):
     logging.info(f"Time to merge all files: {time.time() - seconds} seconds")
 
     clear_output_folders(index_path)
-
-
 
