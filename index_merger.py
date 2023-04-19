@@ -1,5 +1,5 @@
 
-import json, os, time, logging, math
+import json, os, time, logging, math, subprocess
 
 from collections import OrderedDict
 from multiprocessing import Pool
@@ -25,8 +25,16 @@ def encode_to_binary(word_id: int, docs: list[int, int]) -> bytearray:
     return bin_array, len(bin_array)
 
 
-def save_index_statistics(number_of_words: int, number_of_docs: int, index_path: str):
-    pass #TODO
+def save_index_statistics(number_of_words: int, summed_n_docs: int, index_path: str):
+    """Saves the index statistics to a file"""
+
+    stats = {
+        "Number of Lists: ": str(number_of_words),
+        "Average List Size: ": '{0:.2f}'.format(summed_n_docs/number_of_words)
+    }
+
+    with open(index_path + "index_statistics.txt", 'w') as fp:        
+        json.dump(stats, fp)
 
 
 def save_term_lexicon(index_path: str, term_lexicon: dict):
@@ -46,11 +54,13 @@ def builds_term_lexicon(word: str, lexicon: dict, number_of_words: int, byte_sta
     return number_of_words
 
 
-def builds_last_index(output_file, doc: list, lexicon, number_of_words: int, byte_offset: int) -> (int, int, int):
+def builds_last_index(output_file, doc: list, lexicon, number_of_words: int, summed_n_docs: int, byte_offset: int) -> (int, int, int):
     """Builds the last index"""
     
     bin_array, doc_len = encode_to_binary(number_of_words, doc["docs"])
     output_file.write(bin_array)                                      
+    
+    summed_n_docs += len(doc["docs"])
     number_of_words = builds_term_lexicon(
         word = doc['word'], 
         lexicon = lexicon, 
@@ -59,59 +69,61 @@ def builds_last_index(output_file, doc: list, lexicon, number_of_words: int, byt
         byte_end = byte_offset + doc_len
     )       
     
-    return byte_offset + doc_len, number_of_words  
+    return byte_offset + doc_len, number_of_words, summed_n_docs  
 
 
-def finishes_reading_index(f, output_file, lexicon, last_merge: bool, number_of_words: int, byte_offset: int):
+def finishes_reading_index(f, output_file, lexicon, last_merge: bool, number_of_words: int, summed_n_docs: int, byte_offset: int):
     """Finishes reading the index and writes the rest of the lines to the output file"""    
 
     for line in f.readlines():            
         doc = json.loads(line)
+       
+
         if last_merge:
-            byte_offset, number_of_words = builds_last_index(output_file, doc, lexicon, number_of_words, byte_offset)
+            byte_offset, number_of_words, summed_n_docs = builds_last_index(output_file, doc, lexicon, number_of_words, summed_n_docs, byte_offset)
         else:
             output_file.write(json.dumps(doc) + "\n")
                                                                    
-    return number_of_words, byte_offset
+    return number_of_words, summed_n_docs, byte_offset
 
 
 def merger(index_path: str, first_file: str, second_file: str, last_merge=False):
     """Merges two files into one"""    
     
-    number_of_words = 0; byte_offset = 0
-    output_file_path = index_path + "final_index" if last_merge else index_path + "indexes/" + first_file + second_file
+    number_of_words = 0; byte_offset = 0; summed_n_docs = 0
+    output_file_path = index_path + "inverted_index" if last_merge else index_path + "inverted_indexes/" + first_file + second_file
     
-    logging.info(f"Merging {index_path}indexes/{first_file} and {index_path}indexes/{second_file} into {output_file_path}")
+    logging.info(f"Merging {index_path}inverted_indexes/{first_file} and {index_path}inverted_indexes/{second_file} into {output_file_path}")
 
     if last_merge:
         output_file = open(output_file_path, 'wb')
     else :
         output_file = open(output_file_path, 'w')
         
-    with open(index_path + "indexes/" + first_file, 'r') as ff, open(index_path + "indexes/" + second_file, 'r') as fs, open(index_path + "term_lexicon.txt", 'w') as lexicon:    
+    with open(index_path + "inverted_indexes/" + first_file, 'r') as ff, open(index_path + "inverted_indexes/" + second_file, 'r') as fs, open(index_path + "term_lexicon.txt", 'w') as lexicon:    
         
         ff_line = ff.readline()
         fs_line = fs.readline()
         while True:  
             if ff_line == "":                                                                         
-                number_of_words, byte_offset = finishes_reading_index(fs, output_file, lexicon, last_merge, number_of_words, byte_offset)    
+                number_of_words, summed_n_docs, byte_offset = finishes_reading_index(fs, output_file, lexicon, last_merge, number_of_words, summed_n_docs, byte_offset)    
                 break
             
             elif fs_line == "":                                                                    
-                number_of_words, byte_offset = finishes_reading_index(ff, output_file, lexicon, last_merge, number_of_words, byte_offset)     
+                number_of_words, summed_n_docs, byte_offset = finishes_reading_index(ff, output_file, lexicon, last_merge, number_of_words, summed_n_docs, byte_offset)     
                 break
             
             elif ff_line == "" and fs_line == "":                                                      
                 break
             
             else:                                                                                   
-                ff_doc = json.loads(ff_line); fs_doc = json.loads(fs_line)                            
+                ff_doc = json.loads(ff_line); fs_doc = json.loads(fs_line)                           
                 if  ff_doc['word'] == fs_doc['word']:     
 
                     ff_doc['docs'] += fs_doc['docs']
 
                     if last_merge:
-                        byte_offset, number_of_words = builds_last_index(output_file, ff_doc, lexicon, number_of_words, byte_offset)
+                        byte_offset, number_of_words, summed_n_docs = builds_last_index(output_file, ff_doc, lexicon, number_of_words, summed_n_docs, byte_offset)
                     else:
                         output_file.write(json.dumps(ff_doc) + "\n")                                            
                                                                           
@@ -120,7 +132,7 @@ def merger(index_path: str, first_file: str, second_file: str, last_merge=False)
                 elif ff_doc['word'] < fs_doc['word']:                                                
 
                     if last_merge:
-                        byte_offset, number_of_words = builds_last_index(output_file, ff_doc, lexicon, number_of_words, byte_offset)
+                        byte_offset, number_of_words, summed_n_docs = builds_last_index(output_file, ff_doc, lexicon, number_of_words, summed_n_docs, byte_offset)
                     else:
                         output_file.write(json.dumps(ff_doc) + "\n")       
 
@@ -129,7 +141,7 @@ def merger(index_path: str, first_file: str, second_file: str, last_merge=False)
                 else:                                                                                  
 
                     if last_merge:
-                        byte_offset, number_of_words = builds_last_index(output_file, fs_doc, lexicon, number_of_words, byte_offset)
+                        byte_offset, number_of_words, summed_n_docs = builds_last_index(output_file, fs_doc, lexicon, number_of_words, summed_n_docs, byte_offset)
                     else:
                         output_file.write(json.dumps(fs_doc) + "\n")     
 
@@ -137,10 +149,13 @@ def merger(index_path: str, first_file: str, second_file: str, last_merge=False)
                 
     output_file.close()
 
-    os.remove(os.path.join(index_path + "indexes/", first_file))                                     
-    os.remove(os.path.join(index_path + "indexes/", second_file))
+    os.remove(os.path.join(index_path + "inverted_indexes/", first_file))                                     
+    os.remove(os.path.join(index_path + "inverted_indexes/", second_file))
 
                                                         
+    if last_merge:
+        save_index_statistics(number_of_words, summed_n_docs, index_path)
+
 
     time.sleep(1)
 
@@ -148,14 +163,19 @@ def merger(index_path: str, first_file: str, second_file: str, last_merge=False)
 def clear_output_folders(index_path: str):
     """Deletes all files in the output folders"""
 
-    for file in os.listdir(index_path + "indexes/"):
-        os.remove(os.path.join(index_path + "indexes/", file))
+    for file in os.listdir(index_path + "inverted_indexes/"):
+        os.remove(os.path.join(index_path + "inverted_indexes/", file))
 
     for file in os.listdir(index_path + "shards/"):
         os.remove(os.path.join(index_path + "shards/", file))
 
+    for file in os.listdir(index_path + "doc_indexes/"):
+        os.remove(os.path.join(index_path + "doc_indexes/", file))
+
+
     os.rmdir(index_path + "shards/")
-    os.rmdir(index_path + "indexes/")
+    os.rmdir(index_path + "inverted_indexes/")
+    os.rmdir(index_path + "doc_indexes/")
 
 
 def run_merger_thread_pool(index_path: str, number_of_threads: int):
@@ -165,7 +185,7 @@ def run_merger_thread_pool(index_path: str, number_of_threads: int):
 
     while True:
     
-        notice_files = os.listdir(index_path + "indexes/")
+        notice_files = os.listdir(index_path + "inverted_indexes/")
         number_of_files = math.floor(len(notice_files)/2) * 2
 
         if len(notice_files) == 2:
@@ -176,7 +196,10 @@ def run_merger_thread_pool(index_path: str, number_of_threads: int):
             pool.starmap(merger, [(index_path, notice_files[i], notice_files[i+1], False) for i in range(0, number_of_files, 2)]) 
 
 
+    subprocess.Popen(f"cat {index_path}doc_indexes/* > {index_path}document_index", shell=True)
+    time.sleep(15)
     logging.info(f"Time to merge all files: {time.time() - seconds} seconds")
 
+  
     clear_output_folders(index_path)
 

@@ -16,7 +16,7 @@ def preprocesser(text: str) -> list:
     
     text = re.sub(r'\n|\r', ' ', text)       #Removes breaklines
     text = re.sub(r'[^\w\s]', ' ', text)       #Removes punctuation
-    words = word_tokenize(text.lower() )       #Tokenizes the text
+    words = word_tokenize(text.lower())       #Tokenizes the text
 
     filtered_sentence = []
     for w in words:

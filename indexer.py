@@ -4,7 +4,7 @@ from index_builder import index_shard, run_indexer_thread_pool
 from index_merger import run_merger_thread_pool
 from collections import OrderedDict 
 
-logging.basicConfig(filename='min_main.log', level=logging.INFO)
+logging.basicConfig(filename='main.log', level=logging.INFO)
 
 
 MEGABYTE = 1024 * 1024
@@ -13,16 +13,15 @@ def memory_limit(value):
     resource.setrlimit(resource.RLIMIT_AS, (limit, limit))
 
 
-def print_indexer_statistics(index_path: str, full_time: int, n_lists: int, sum_size_lists: int):
+def print_indexer_statistics(index_path: str, full_time: int):
     """Prints the statistics of the indexer"""
-    stats = { 
-        " Index Size ": int(str(subprocess.check_output(f"du -s {index_path}final_index", shell=True), 'utf-8').split("\t")[0]),
-        " Elapsed Time ": full_time ,
-        " Number of Lists ": n_lists ,
-        " Average List Size ": sum_size_lists/n_lists, 
-    }
-
-    print(stats)
+    
+    with open(index_path + "index_statistics.txt", 'r+') as fp:
+        stats = json.load(fp)
+        stats["Index Size"] = '{0:.0f}'.format(int(str(subprocess.check_output(f"du -s {index_path}inverted_index", shell=True), 'utf-8').split("\t")[0])/1000)
+        stats["Elapsed Time"] = '{0:.0f}'.format(full_time)
+    
+        print(stats)
 
 
 def main(memory_limit: str, corpus_path: str, index_path: str, verbose: bool, number_of_threads: int):
@@ -32,7 +31,7 @@ def main(memory_limit: str, corpus_path: str, index_path: str, verbose: bool, nu
     full_time = time.time()
     # Amount of pieces we can manage to process for each thread due to memory limit
     file_size = int(str(subprocess.check_output(f"du -s {corpus_path}", shell=True), 'utf-8').split("\t")[0])
-    number_of_divisions = math.ceil((1.3*file_size)/(memory_limit*1024) * number_of_threads)
+    number_of_divisions = math.ceil((3*file_size)/(memory_limit*1024) * number_of_threads)
     number_of_divisions = number_of_divisions if number_of_divisions > number_of_threads else number_of_threads
     
     logging.info(f"Indexing corpus {corpus_path} of size {file_size} to an indexer in {index_path} with {number_of_threads} threads and {memory_limit} MB of memory")
@@ -58,6 +57,7 @@ def main(memory_limit: str, corpus_path: str, index_path: str, verbose: bool, nu
     logging.info(f"------------------------------------------------------------------------------------------------------------------------------------")
 
 
+    print_indexer_statistics(index_path, full_time)
 
 
 
