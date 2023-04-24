@@ -1,6 +1,6 @@
 import json, os, math, subprocess, re, nltk, time, logging
 
-from nltk.stem import PorterStemmer
+from nltk.stem.snowball import SnowballStemmer
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 
@@ -12,7 +12,7 @@ nltk.download('punkt')
 def preprocesser(text: str) -> list:
     """Does stemming and removes stopwords and punctuation"""
     
-    ps = PorterStemmer()
+    snow_stemmer = SnowballStemmer(language='english')
     
     text = re.sub(r'\n|\r', ' ', text)       #Removes breaklines
     text = re.sub(r'[^\w\s]', ' ', text)       #Removes punctuation
@@ -21,7 +21,7 @@ def preprocesser(text: str) -> list:
     filtered_sentence = []
     for w in words:
         if w not in stop_words:
-            filtered_sentence.append(ps.stem(w))
+            filtered_sentence.append(snow_stemmer.stem(w))
 
     return filtered_sentence
 

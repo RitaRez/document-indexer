@@ -672,3 +672,165 @@ INFO:root:Time to merge all files: 1136.3288128376007 seconds
 INFO:root:Time to merge all indexes: 1137.0500464439392 seconds
 INFO:root:Total time to index corpus ../corpus.jsonl of size 2178328 to an indexer in ../output/ with 8 threads and 1024 MB of memory: 2382.951812982559 seconds
 INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../ouput/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to split the corpus: 1.3070390224456787 seconds
+INFO:root:Found 8 shards
+INFO:root:Time to create index of shard t06: 33.14202165603638 seconds
+INFO:root:Time to save inverted index of shard t06: 1.2706046104431152 seconds
+INFO:root:Time to save doc index of shard t06: 0.2903904914855957 seconds
+INFO:root:Time to create index of shard t07: 34.91740703582764 seconds
+INFO:root:Time to create index of shard t05: 35.43840742111206 seconds
+INFO:root:Time to create index of shard t03: 35.574909687042236 seconds
+INFO:root:Time to create index of shard t04: 35.96000957489014 seconds
+INFO:root:Time to create index of shard t00: 36.36946177482605 seconds
+INFO:root:Time to save inverted index of shard t07: 1.6072521209716797 seconds
+INFO:root:Time to create index of shard t02: 36.73216152191162 seconds
+INFO:root:Time to save doc index of shard t07: 0.37479329109191895 seconds
+INFO:root:Time to create index of shard t01: 37.28077673912048 seconds
+INFO:root:Time to save inverted index of shard t05: 1.9860117435455322 seconds
+INFO:root:Time to save inverted index of shard t03: 1.888538122177124 seconds
+INFO:root:Time to save doc index of shard t05: 0.39288830757141113 seconds
+INFO:root:Time to save doc index of shard t03: 0.4040086269378662 seconds
+INFO:root:Time to save inverted index of shard t04: 2.029029130935669 seconds
+INFO:root:Time to save inverted index of shard t00: 1.9061357975006104 seconds
+INFO:root:Time to save doc index of shard t04: 0.3331735134124756 seconds
+INFO:root:Time to save inverted index of shard t02: 1.846519947052002 seconds
+INFO:root:Time to save doc index of shard t00: 0.31316542625427246 seconds
+INFO:root:Time to save doc index of shard t02: 0.3336944580078125 seconds
+INFO:root:Time to save inverted index of shard t01: 1.7316129207611084 seconds
+INFO:root:Time to save doc index of shard t01: 0.4375319480895996 seconds
+INFO:root:Time to index all shards: 39.84361815452576 seconds
+INFO:root:Merging ../output/inverted_indexes/t00 and ../output/inverted_indexes/t01 into ../output/inverted_indexes/t00t01
+INFO:root:Merging ../output/inverted_indexes/t02 and ../output/inverted_indexes/t03 into ../output/inverted_indexes/t02t03
+INFO:root:Merging ../output/inverted_indexes/t04 and ../output/inverted_indexes/t05 into ../output/inverted_indexes/t04t05
+INFO:root:Merging ../output/inverted_indexes/t06 and ../output/inverted_indexes/t07 into ../output/inverted_indexes/t06t07
+INFO:root:Merging ../output/inverted_indexes/t04t05 and ../output/inverted_indexes/t06t07 into ../output/inverted_indexes/t04t05t06t07
+INFO:root:Merging ../output/inverted_indexes/t00t01 and ../output/inverted_indexes/t02t03 into ../output/inverted_indexes/t00t01t02t03
+INFO:root:Merging ../output/inverted_indexes/t00t01t02t03 and ../output/inverted_indexes/t04t05t06t07 into ../output/inverted_index
+INFO:root:Time to merge all files: 56.08219265937805 seconds
+INFO:root:Time to merge all indexes: 56.333364725112915 seconds
+INFO:root:Total time to index corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory: 100.5012698173523 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to split the corpus: 1.2582812309265137 seconds
+INFO:root:Found 8 shards
+INFO:root:Time to create index of shard t06: 21.325533151626587 seconds
+INFO:root:Time to save inverted index of shard t06: 1.1153230667114258 seconds
+INFO:root:Time to create index of shard t05: 22.625653982162476 seconds
+INFO:root:Time to save doc index of shard t06: 0.2417151927947998 seconds
+INFO:root:Time to create index of shard t03: 22.74673342704773 seconds
+INFO:root:Time to create index of shard t01: 23.1065411567688 seconds
+INFO:root:Time to create index of shard t07: 23.18491291999817 seconds
+INFO:root:Time to create index of shard t02: 23.940295457839966 seconds
+INFO:root:Time to create index of shard t04: 23.9445903301239 seconds
+INFO:root:Time to save inverted index of shard t05: 1.3282623291015625 seconds
+INFO:root:Time to create index of shard t00: 24.04175090789795 seconds
+INFO:root:Time to save inverted index of shard t03: 1.3315348625183105 seconds
+INFO:root:Time to save doc index of shard t05: 0.3545846939086914 seconds
+INFO:root:Time to save doc index of shard t03: 0.35082507133483887 seconds
+INFO:root:Time to save inverted index of shard t01: 1.4168403148651123 seconds
+INFO:root:Time to save inverted index of shard t07: 1.4508237838745117 seconds
+INFO:root:Time to save doc index of shard t01: 0.30239057540893555 seconds
+INFO:root:Time to save doc index of shard t07: 0.2989003658294678 seconds
+INFO:root:Time to save inverted index of shard t04: 1.5209078788757324 seconds
+INFO:root:Time to save inverted index of shard t02: 1.5499897003173828 seconds
+INFO:root:Time to save inverted index of shard t00: 1.5066888332366943 seconds
+INFO:root:Time to save doc index of shard t04: 0.26938533782958984 seconds
+INFO:root:Time to save doc index of shard t02: 0.31656479835510254 seconds
+INFO:root:Time to save doc index of shard t00: 0.2607560157775879 seconds
+INFO:root:Time to index all shards: 26.122687816619873 seconds
+INFO:root:Merging ../output/inverted_indexes/t00 and ../output/inverted_indexes/t01 into ../output/inverted_indexes/t00t01
+INFO:root:Merging ../output/inverted_indexes/t02 and ../output/inverted_indexes/t03 into ../output/inverted_indexes/t02t03
+INFO:root:Merging ../output/inverted_indexes/t04 and ../output/inverted_indexes/t05 into ../output/inverted_indexes/t04t05
+INFO:root:Merging ../output/inverted_indexes/t06 and ../output/inverted_indexes/t07 into ../output/inverted_indexes/t06t07
+INFO:root:Merging ../output/inverted_indexes/t00t01 and ../output/inverted_indexes/t02t03 into ../output/inverted_indexes/t00t01t02t03
+INFO:root:Merging ../output/inverted_indexes/t04t05 and ../output/inverted_indexes/t06t07 into ../output/inverted_indexes/t04t05t06t07
+INFO:root:Merging ../output/inverted_indexes/t00t01t02t03 and ../output/inverted_indexes/t04t05t06t07 into ../output/inverted_index
+INFO:root:Time to merge all files: 55.81240487098694 seconds
+INFO:root:Time to merge all indexes: 56.21964740753174 seconds
+INFO:root:Total time to index corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory: 86.61769127845764 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to split the corpus: 1.4296281337738037 seconds
+INFO:root:Found 8 shards
+INFO:root:Time to create index of shard t06: 22.5508713722229 seconds
+INFO:root:Time to save inverted index of shard t06: 1.173191785812378 seconds
+INFO:root:Time to save doc index of shard t06: 0.29126596450805664 seconds
+INFO:root:Time to create index of shard t01: 24.26558256149292 seconds
+INFO:root:Time to create index of shard t07: 24.719305515289307 seconds
+INFO:root:Time to create index of shard t04: 25.07335615158081 seconds
+INFO:root:Time to create index of shard t05: 25.202210187911987 seconds
+INFO:root:Time to create index of shard t02: 25.456634044647217 seconds
+INFO:root:Time to create index of shard t00: 25.48249101638794 seconds
+INFO:root:Time to create index of shard t03: 25.588131189346313 seconds
+INFO:root:Time to save inverted index of shard t01: 1.3726179599761963 seconds
+INFO:root:Time to save doc index of shard t01: 0.30034923553466797 seconds
+INFO:root:Time to save inverted index of shard t07: 1.3761038780212402 seconds
+INFO:root:Time to save doc index of shard t07: 0.2872648239135742 seconds
+INFO:root:Time to save inverted index of shard t04: 1.3994944095611572 seconds
+INFO:root:Time to save doc index of shard t04: 0.31973886489868164 seconds
+INFO:root:Time to save inverted index of shard t02: 1.4421117305755615 seconds
+INFO:root:Time to save inverted index of shard t05: 1.6948862075805664 seconds
+INFO:root:Time to save inverted index of shard t00: 1.4693915843963623 seconds
+INFO:root:Time to save inverted index of shard t03: 1.4472377300262451 seconds
+INFO:root:Time to save doc index of shard t02: 0.2717404365539551 seconds
+INFO:root:Time to save doc index of shard t05: 0.2781376838684082 seconds
+INFO:root:Time to save doc index of shard t00: 0.2729363441467285 seconds
+INFO:root:Time to save doc index of shard t03: 0.29498815536499023 seconds
+INFO:root:Time to index all shards: 27.652724027633667 seconds
+INFO:root:Merging ../output/inverted_indexes/t02 and ../output/inverted_indexes/t03 into ../output/inverted_indexes/t02t03
+INFO:root:Merging ../output/inverted_indexes/t00 and ../output/inverted_indexes/t01 into ../output/inverted_indexes/t00t01
+INFO:root:Merging ../output/inverted_indexes/t04 and ../output/inverted_indexes/t05 into ../output/inverted_indexes/t04t05
+INFO:root:Merging ../output/inverted_indexes/t06 and ../output/inverted_indexes/t07 into ../output/inverted_indexes/t06t07
+INFO:root:Merging ../output/inverted_indexes/t00t01 and ../output/inverted_indexes/t02t03 into ../output/inverted_indexes/t00t01t02t03
+INFO:root:Merging ../output/inverted_indexes/t04t05 and ../output/inverted_indexes/t06t07 into ../output/inverted_indexes/t04t05t06t07
+INFO:root:Merging ../output/inverted_indexes/t00t01t02t03 and ../output/inverted_indexes/t04t05t06t07 into ../output/inverted_index
+INFO:root:Time to merge all files: 52.407172203063965 seconds
+INFO:root:Time to merge all indexes: 52.571171045303345 seconds
+INFO:root:Total time to index corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory: 84.66929340362549 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------
+INFO:root:Indexing corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory
+INFO:root:Were divinding the corpus in  8 pieces
+INFO:root:Time to split the corpus: 1.417586326599121 seconds
+INFO:root:Found 8 shards
+INFO:root:Time to create index of shard t06: 24.8563871383667 seconds
+INFO:root:Time to save inverted index of shard t06: 1.487743854522705 seconds
+INFO:root:Time to create index of shard t07: 26.623719692230225 seconds
+INFO:root:Time to save doc index of shard t06: 0.3641369342803955 seconds
+INFO:root:Time to create index of shard t01: 27.13259506225586 seconds
+INFO:root:Time to create index of shard t05: 27.139113426208496 seconds
+INFO:root:Time to create index of shard t03: 27.362804889678955 seconds
+INFO:root:Time to create index of shard t04: 27.664701223373413 seconds
+INFO:root:Time to create index of shard t02: 27.678699016571045 seconds
+INFO:root:Time to save inverted index of shard t07: 1.6343169212341309 seconds
+INFO:root:Time to save doc index of shard t07: 0.31348204612731934 seconds
+INFO:root:Time to create index of shard t00: 28.67588448524475 seconds
+INFO:root:Time to save inverted index of shard t01: 1.5997765064239502 seconds
+INFO:root:Time to save inverted index of shard t05: 1.647505760192871 seconds
+INFO:root:Time to save inverted index of shard t03: 1.6382136344909668 seconds
+INFO:root:Time to save doc index of shard t01: 0.3325512409210205 seconds
+INFO:root:Time to save doc index of shard t05: 0.3388862609863281 seconds
+INFO:root:Time to save inverted index of shard t02: 1.6560583114624023 seconds
+INFO:root:Time to save doc index of shard t03: 0.35407137870788574 seconds
+INFO:root:Time to save inverted index of shard t04: 1.7645537853240967 seconds
+INFO:root:Time to save doc index of shard t02: 0.3355729579925537 seconds
+INFO:root:Time to save doc index of shard t04: 0.34894299507141113 seconds
+INFO:root:Time to save inverted index of shard t00: 1.64277982711792 seconds
+INFO:root:Time to save doc index of shard t00: 0.3011620044708252 seconds
+INFO:root:Time to index all shards: 30.90645432472229 seconds
+INFO:root:Merging ../output/inverted_indexes/t00 and ../output/inverted_indexes/t01 into ../output/inverted_indexes/t00t01
+INFO:root:Merging ../output/inverted_indexes/t02 and ../output/inverted_indexes/t03 into ../output/inverted_indexes/t02t03
+INFO:root:Merging ../output/inverted_indexes/t04 and ../output/inverted_indexes/t05 into ../output/inverted_indexes/t04t05
+INFO:root:Merging ../output/inverted_indexes/t06 and ../output/inverted_indexes/t07 into ../output/inverted_indexes/t06t07
+INFO:root:Merging ../output/inverted_indexes/t00t01 and ../output/inverted_indexes/t02t03 into ../output/inverted_indexes/t00t01t02t03
+INFO:root:Merging ../output/inverted_indexes/t04t05 and ../output/inverted_indexes/t06t07 into ../output/inverted_indexes/t04t05t06t07
+INFO:root:Merging ../output/inverted_indexes/t00t01t02t03 and ../output/inverted_indexes/t04t05t06t07 into ../output/inverted_index
+INFO:root:Time to merge all files: 61.45380759239197 seconds
+INFO:root:Time to merge all indexes: 61.86723589897156 seconds
+INFO:root:Total time to index corpus ../min_corpus.jsonl of size 93584 to an indexer in ../output/ with 8 threads and 1024 MB of memory: 97.20949578285217 seconds
+INFO:root:------------------------------------------------------------------------------------------------------------------------------------

@@ -37,18 +37,10 @@ def save_index_statistics(number_of_words: int, summed_n_docs: int, index_path: 
         json.dump(stats, fp)
 
 
-def save_term_lexicon(index_path: str, term_lexicon: dict):
-    """Saves the term lexicon to a file"""
-
-    with open(index_path + "term_lexicon.txt", 'w') as fp:
-        for word in term_lexicon:
-            fp.write(word + " " + str(term_lexicon[word][0]) + " " + str(term_lexicon[word][1]) + " " + str(term_lexicon[word][2]) + "\n")
-
-
-def builds_term_lexicon(word: str, lexicon: dict, number_of_words: int, byte_start: int, byte_end: int) -> (int, int):
+def builds_term_lexicon(word: str, lexicon, number_of_words: int, number_of_docs: int, byte_start: int, byte_end: int) -> (int, int):
     """Builds the term lexicon"""
     
-    lexicon.write(word + " " + str(number_of_words) + " " + str(byte_start) + " " + str(byte_end) + "\n")
+    lexicon.write(word + " " + str(number_of_words) + " " + str(byte_start) + " " + str(byte_end) + " " + str(number_of_docs) + "\n")
     number_of_words += 1
     
     return number_of_words
@@ -65,6 +57,7 @@ def builds_last_index(output_file, doc: list, lexicon, number_of_words: int, sum
         word = doc['word'], 
         lexicon = lexicon, 
         number_of_words = number_of_words, 
+        number_of_docs = len(doc["docs"]),
         byte_start = byte_offset, 
         byte_end = byte_offset + doc_len
     )       

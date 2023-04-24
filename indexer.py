@@ -13,13 +13,14 @@ def memory_limit(value):
     resource.setrlimit(resource.RLIMIT_AS, (limit, limit))
 
 
-def print_indexer_statistics(index_path: str, full_time: int):
+def print_indexer_statistics(index_path: str, corpus_path: str, full_time: int):
     """Prints the statistics of the indexer"""
     
     with open(index_path + "index_statistics.txt", 'r+') as fp:
         stats = json.load(fp)
         stats["Index Size"] = '{0:.0f}'.format(int(str(subprocess.check_output(f"du -s {index_path}inverted_index", shell=True), 'utf-8').split("\t")[0])/1000)
         stats["Elapsed Time"] = '{0:.0f}'.format(full_time)
+        stats["Number of Documents in Corpus"] = '{0:.0f}'.format(int(str(subprocess.check_output(f"wc -l {corpus_path}", shell=True), 'utf-8').split(" ")[0]))
     
         print(stats)
 
@@ -57,7 +58,7 @@ def main(memory_limit: str, corpus_path: str, index_path: str, verbose: bool, nu
     logging.info(f"------------------------------------------------------------------------------------------------------------------------------------")
 
 
-    print_indexer_statistics(index_path, full_time)
+    print_indexer_statistics(index_path, corpus_path, full_time)
 
 
 
